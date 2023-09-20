@@ -6,6 +6,7 @@
 package com.mycompany.proyecto01prograiv.presentation.login;
 
 
+import com.mycompany.proyecto01prograiv.logic.Estudiante;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,10 +17,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import com.mycompany.proyecto01prograiv.logic.Service;
+import java.sql.SQLException;
 
 //import com.mycompany.proyecto01prograiv.logic.Usuario;
 
-/*
+
 @WebServlet(name = "LoginController", urlPatterns = {
     "/presentation/login/show",
     "/presentation/login/login",
@@ -79,28 +81,20 @@ public class Controller extends HttpServlet {
     void updateModel(HttpServletRequest request){
        Model model= (Model) request.getAttribute("model");
        
-       // model.getCurrent().setCedula(request.getParameter("cedulaFld"));
-       // model.getCurrent().setClave(request.getParameter("claveFld"));
+        model.getCurrent().setId(request.getParameter("idFld"));
+        model.getCurrent().setClave(request.getParameter("claveFld"));
         
    }
 
         
-    public String loginAction(HttpServletRequest request) {
+    public String loginAction(HttpServletRequest request) throws SQLException {
         Model model= (Model) request.getAttribute("model");
         Service  service = Service.instance();
         HttpSession session = request.getSession(true);
         try {
-            Usuario real = service.usuarioFind(model.getCurrent().getCedula(),model.getCurrent().getClave());
+            Estudiante real = service.estudianteFind(model.getCurrent().getId(),model.getCurrent().getClave());
             session.setAttribute("usuario", real);
-            String viewUrl="";
-            //switch(real.getTipo()){
-                case 1:
-                    viewUrl="/presentation/cliente/polizas/blank";
-                    break;
-                case 2:
-                     viewUrl="/presentation/cliente/polizas/Administrar.jsp"; 
-                    break;             
-            }
+            String viewUrl=""; //poner la URL de a donde va el login
             return viewUrl;
         } catch (Exception ex) {
             Map<String,String> errores = new HashMap<>();
@@ -129,7 +123,7 @@ public class Controller extends HttpServlet {
         
     public String showAction(HttpServletRequest request){
         Model model= (Model) request.getAttribute("model");
-        model.getCurrent().setCedula("");
+        model.getCurrent().setId("");
         model.getCurrent().setClave("");
         return "/presentation/login/View.jsp"; 
     }    
@@ -156,4 +150,3 @@ public class Controller extends HttpServlet {
 
     
 }
-*/

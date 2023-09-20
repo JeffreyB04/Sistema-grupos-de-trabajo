@@ -76,9 +76,9 @@ public class EstudianteDao {
             preparedStatement.executeUpdate();
         }
     }
-    public Estudiante readEstudiante(String id) throws SQLException {
+    public Estudiante readEstudiante(String id, String clave) throws SQLException {
     Estudiante estudiante = null;
-    String query = "SELECT * FROM bd_grupos.estudiante WHERE id=?";
+    String query = "SELECT * FROM bd_grupos.estudiante WHERE id=? AND clave=?";
     try (PreparedStatement preparedStatement = db.prepareStatement(query)) {
         preparedStatement.setString(1, id);
         try (ResultSet resultSet = preparedStatement.executeQuery()) {

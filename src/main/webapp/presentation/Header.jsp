@@ -1,5 +1,5 @@
 <%@ page import="com.mycompany.proyecto01prograiv.logic.Estudiante" %>
-<% Usuario usuario = (Estudiante) session.getAttribute("estudiante"); %>
+<% Estudiante estudiante = (Estudiante) session.getAttribute("estudiante"); %>
 
 
 <header>
@@ -12,7 +12,7 @@
                 </li>
                 <% if (usuario!=null){ %>                     
                     <li >
-                        <a  href="presentation/cliente/datos/show">User:<%=estudiante.getCedula()%></a>
+                       
                         <ul>  <!--submenu --> </ul>
                     </li> 
 
@@ -21,16 +21,16 @@
                     </li>                
                 <% } %>
                 
-                <% if (usuario==null){%>
+                <% if (estudiante==null){%>
                     <li>
-                        <a href="presentation/login/show">Login</a>
+                       
                     </li>
                 <% }%>             
             </ul>
         </div>
     </div> 
                    
-    <% if (usuario!=null){ %>       
+    <% if (estudiante!=null){ %>       
    
 </header>          
 

@@ -32,8 +32,8 @@ public class Service {
     }
 
 
-    public Estudiante estudianteFind(String id) throws SQLException {
-        Estudiante estudiante = estudianteDao.readEstudiante(id);
+    public Estudiante estudianteFind(String id, String clave) throws SQLException {
+        Estudiante estudiante = estudianteDao.readEstudiante(id, clave);
         return estudiante;
     }
 

@@ -1,4 +1,3 @@
-
 <%@page import="com.progra.guia.presentation.login.Model"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
@@ -21,7 +20,7 @@
             <div class="panel" style="width:30%;">
                 <div class="fila encabezado">Login</div>
                 <div class="fila">
-                      <div class="campo"><input class="<%=erroneo("cedulaFld",errores)%>" placeholder="Cedula del usuario" type="text" name="cedulaFld" value="<%=form.get("cedulaFld")[0]%>" title="<%=title("cedulaFld",errores)%>"></div>
+                      <div class="campo"><input class="<%=erroneo("idFld",errores)%>" placeholder="Id del usuario" type="text" name="idFld" value="<%=form.get("idFld")[0]%>" title="<%=title("idFld",errores)%>"></div>
                 </div>
                 <div class="fila">
                   <div class="campo"><input class="<%=erroneo("claveFld",errores)%>" placeholder="Clave del usuario" type="password" name="claveFld" value="<%=form.get("claveFld")[0]%>" title="<%=title("claveFld",errores)%>"></div>
@@ -32,7 +31,6 @@
                 
                 
                 <div style="float: right; margin-top: 15px;">Necesita cuenta nueva?</div>
-                 <a class="fila" href="presentation/registration/Register.jsp" style="float:right; display: block; clear: both; margin-top: -30px;"  >Registrarme</a>
                 
                 
             </div>
@@ -57,7 +55,7 @@
 
     private Map<String,String[]> getForm(Model model){
        Map<String,String[]> values = new HashMap<>();
-       values.put("cedulaFld", new String[]{model.getCurrent().getCedula()});
+       values.put("idFld", new String[]{model.getCurrent().getId()});
        values.put("claveFld", new String[]{model.getCurrent().getClave()});
        
        return values;
