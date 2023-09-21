@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version_info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="version_info.xsd">
+    <version>2</version>
+    <subversion>1</subversion>
+    <revision>3</revision>
+    <created>2022-07-16</created>
+    <history>
+        <entry>
+            <date>2022-07-16</date>
+            <author>Georges Alfaro S.</author>
+            <comments>version 2.0.1</comments>
+        </entry>
+        <entry>
+            <date>2023-04-05</date>
+            <author>Georges Alfaro S.</author>
+            <comments>version 2.1.0</comments>
+        </entry>
+        <entry>
+            <date>2023-08-27</date>
+            <author>Georges Alfaro S.</author>
+            <comments>version 2.1.3</comments>
+        </entry>
+    </history>
+</version_info>
