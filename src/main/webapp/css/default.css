@@ -1,0 +1,85 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Sep 21, 2023, 10:09:05 AM
+    Author     : jeffr
+*/
+body {
+}
+
+#wrapper {
+    font-family: sans-serif;
+    font-size: 12pt;
+    padding: 4px 32px;
+}
+
+.dTabla {
+    height: 360px;
+    width: 640px;
+    overflow-x: auto;
+    overflow-y: auto;
+    position: relative;
+}
+
+.dTabla thead {
+    height: 24px;
+    position: sticky;
+    top: 0px;
+}
+
+h1 {
+    font-size: 14pt;
+    border-bottom: 1px solid darkslategray;
+    padding-bottom: 4px;
+}
+
+h2 {
+    background-color: darkslategray;
+    border-bottom: 3px solid darkslategray;
+    color: white;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding: 4px 16px;
+    width: 560px;
+}
+
+.tablaE {
+    font-size: smaller;
+    border: 3px solid darkslategray;
+    border-top: none;
+    border-collapse: collapse;
+    width: 592px;
+}
+
+.tablaE caption {
+    background-color: darkslategray;
+    border: 3px solid darkslategray;
+    border-bottom: none;
+    font-size: 14px;
+    height: 18px;
+    color: white;
+    padding: 4px 16px;
+}
+
+.tablaE thead {
+    background-color: lightslategray;
+    color: white;
+}
+
+.tablaE tbody tr:nth-child(even) {
+    background-color: #dde;
+}
+
+.tablaE th,
+.tablaE td {
+    border: 1px solid darkslategray;
+    padding: 2px 16px;
+}
+
+.tablaE th {
+    border-top: 3px;
+    text-align: left;
+}
