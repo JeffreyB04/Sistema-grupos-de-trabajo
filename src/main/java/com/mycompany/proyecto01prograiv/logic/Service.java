@@ -5,66 +5,110 @@
  */
 package com.mycompany.proyecto01prograiv.logic;
 
-import com.mycompany.proyecto01prograiv.data.EstudianteDao;
-import com.mycompany.proyecto01prograiv.data.GrupoDao;
-import com.mycompany.proyecto01prograiv.data.RelDatabase;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.jdbc.DataSourceConnectionSource;
+import com.mysql.cj.jdbc.MysqlDataSource;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlElementWrapper;
+import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
-public class Service {
-
-    private static Service uniqueInstance;
-
-    public static Service instance() {
-        if (uniqueInstance == null) {
-            uniqueInstance = new Service();
-        }
-        return uniqueInstance;
-    }
-    RelDatabase relDatabase;
-
-    EstudianteDao estudianteDao;
-    GrupoDao grupoDao;
-
+public class Service implements Serializable {
+    
     private Service() {
-        relDatabase = new RelDatabase();
-        estudianteDao = new EstudianteDao(relDatabase);
-        grupoDao = new GrupoDao(relDatabase);
+        try {
+            InitialContext ctx = new InitialContext();
+            bd = (MysqlDataSource) ctx.lookup("jdbc/bd_grupos");
+            System.out.println("Usando JNDI para acceder a la base de datos..");
+
+        } catch (NamingException | NullPointerException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+
+            bd = new MysqlDataSource();
+            bd.setServerName("localhost");
+            bd.setPortNumber(3306);
+            bd.setDatabaseName("bd_grupos");
+            bd.setUser("root");
+            bd.setPassword("root");
+
+            System.out.println("Usando el manejador JDBC para acceder a la base de datos..");
+        }
+
+        if (bd != null) {
+            System.out.printf("Origen de datos: %s%n", bd.getURL());
+        } else {
+            System.err.println("No se pudo establecer el origen de datos.");
+        }
+        System.out.println();
+
+        try {
+            DataSourceConnectionSource connectionSource
+                    = new DataSourceConnectionSource(bd, bd.getURL());
+            estudianteDAO = DaoManager.createDao(connectionSource, Estudiante.class);
+        } catch (SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+        }
     }
 
-
-    public Estudiante estudianteFind(String id, String clave) throws SQLException {
-        Estudiante estudiante = estudianteDao.readEstudiante(id, clave);
-        return estudiante;
+    public static Service obtenerInstancia() {
+        if (instancia == null) {
+            instancia = new Service();
+        }
+        return instancia;
     }
 
-    public Grupo grupoFind(int id) throws SQLException {
-        Grupo grupo = grupoDao.readGrupo(id);
-        return grupo;
+    public int agregar(Estudiante nuevo) throws SQLException {
+        return estudianteDAO.create(nuevo);
     }
 
-
-    public void estudianteInsert(Estudiante estudiante) throws SQLException {
-        estudianteDao.insertEstudiante(estudiante);
+    public Estudiante recuperar(String id) throws SQLException {
+        return estudianteDAO.queryForId(id);
     }
 
-    public void estudianteUpdate(Estudiante estudiante) throws SQLException {
-        estudianteDao.updateEstudiante(estudiante);
+    public int actualizar(Estudiante estudiante) throws SQLException {
+        return estudianteDAO.update(estudiante);
     }
 
-    public void estudianteDelete(String id) throws SQLException {
-        estudianteDao.deleteEstudiante(id);
+    public int eliminar(String id) throws SQLException {
+        return estudianteDAO.deleteById(id);
     }
 
-
-    public void grupoInsert(Grupo grupo) throws SQLException {
-        grupoDao.insertGrupo(grupo);
+    public List<Estudiante> listarTodos() throws SQLException {
+        return estudianteDAO.queryForAll();
     }
 
-    public void grupoUpdate(Grupo grupo) throws SQLException {
-        grupoDao.updateGrupo(grupo);
+    public void actualizar() {
+        estudiantes.clear();
+        try {
+            estudiantes.addAll(listarTodos());
+        } catch (SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+        }
     }
 
-    public void grupoDelete(int id) throws SQLException {
-        grupoDao.deleteGrupo(id);
+    @Override
+    public String toString() {
+        StringBuilder r = new StringBuilder("{");
+        actualizar();
+        for (Estudiante e : estudiantes) {
+            r.append(String.format("\n\t%s,", e));
+        }
+        r.append("\n}");
+        return r.toString();
     }
+
+    private static Service instancia = null;
+
+    private MysqlDataSource bd = null;
+    private Dao<Estudiante, String> estudianteDAO;
+
+    @XmlElementWrapper(name = "estudiantes")
+    @XmlElement(name = "estudiante")
+    private List<Estudiante> estudiantes = new ArrayList<>();
+    
 }

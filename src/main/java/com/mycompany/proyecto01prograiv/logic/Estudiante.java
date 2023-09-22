@@ -1,107 +1,67 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.proyecto01prograiv.logic;
 
-import java.sql.Timestamp;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+import cr.ac.una.ejemplo17.entidades.xml.SqlDateAdapter;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-public class Estudiante {
-
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@DatabaseTable(tableName = "estudiante")
+public class Estudiante implements Serializable {
+    
+    @Getter
+    @Setter
+    @DatabaseField
     private String id;
-    private int nrc;
+    
+    @Getter
+    @Setter
+    @DatabaseField
+    private String nrc;
+    
+    @Getter
+    @Setter
+    @DatabaseField
     private String apellidos;
+    
+    @Getter
+    @Setter
+    @DatabaseField
     private String nombre;
-    private int secuencia;
+    
+    @Getter
+    @Setter
+    @DatabaseField
+    private String secuencia;
+    
+    @Getter
+    @Setter
+    @DatabaseField
     private String clave;
-    private Timestamp ultimoAcceso;
-    private int grupoId;
-
-    public Estudiante() {
-        // Constructor vacío
+    
+    @Getter
+    @Setter
+    @DatabaseField
+    private String grupo_id;
+    
+    public java.sql.Date getNacimiento() {
+        return ultimo_acceso;
     }
 
-    public Estudiante(String id, int nrc, String apellidos, String nombre, int secuencia, String clave,
-            Timestamp ultimoAcceso, int grupoId) {
-        this.id = id;
-        this.nrc = nrc;
-        this.apellidos = apellidos;
-        this.nombre = nombre;
-        this.secuencia = secuencia;
-        this.clave = clave;
-        this.ultimoAcceso = ultimoAcceso;
-        this.grupoId = grupoId;
+    @XmlJavaTypeAdapter(SqlDateAdapter.class)
+    public void setNacimiento(java.sql.Date ultimo_acceso) {
+        this.ultimo_acceso = ultimo_acceso;
     }
 
-    // Getters y setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public int getNrc() {
-        return nrc;
-    }
-
-    public void setNrc(int nrc) {
-        this.nrc = nrc;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getSecuencia() {
-        return secuencia;
-    }
-
-    public void setSecuencia(int secuencia) {
-        this.secuencia = secuencia;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
-    public Timestamp getUltimoAcceso() {
-        return ultimoAcceso;
-    }
-
-    public void setUltimoAcceso(Timestamp ultimoAcceso) {
-        this.ultimoAcceso = ultimoAcceso;
-    }
-
-    public int getGrupoId() {
-        return grupoId;
-    }
-
-    public void setGrupoId(int grupoId) {
-        this.grupoId = grupoId;
-    }
-
-    @Override
-    public String toString() {
-        return "Estudiante [id=" + id + ", nrc=" + nrc + ", apellidos=" + apellidos + ", nombre=" + nombre
-                + ", secuencia=" + secuencia + ", clave=" + clave + ", ultimoAcceso=" + ultimoAcceso + ", grupoId="
-                + grupoId + "]";
-    }
+    @DatabaseField
+    private java.sql.Date ultimo_acceso;
+    
 }

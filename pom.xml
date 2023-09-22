@@ -23,6 +23,37 @@
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
+         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.28</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>4.0.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.j256.ormlite/ormlite-jdbc -->
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-jdbc</artifactId>
+            <version>6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>cr.ac.una</groupId>
+            <artifactId>ejemplo17_backend-1.0.0</artifactId>
+            <version>1.0.0</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     
     <build>
