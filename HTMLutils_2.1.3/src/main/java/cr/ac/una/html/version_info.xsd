@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="version_info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="version"/>
+                <xs:element ref="subversion"/>
+                <xs:element ref="revision"/>
+                <xs:element ref="created"/>
+                <xs:element ref="history"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="version" type="xs:integer"/>
+    <xs:element name="subversion" type="xs:integer"/>
+    <xs:element name="revision" type="xs:integer"/>
+    <xs:element name="created" type="xs:date"/>
+    <xs:element name="history">
+        <xs:complexType>
+            <xs:sequence maxOccurs="unbounded" minOccurs="0">
+                <xs:element ref="entry"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="entry">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="date"/>
+                <xs:element ref="author"/>
+                <xs:element ref="comments" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="date" type="xs:date"/>
+    <xs:element name="author" type="xs:string"/>
+    <xs:element name="comments" type="xs:string"> </xs:element>
+</xs:schema>
