@@ -45,17 +45,17 @@ body {
     background-size: cover;
     margin: 0;
     height: 100vh;
-    
-    
+
+
     footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(42, 47, 53);
-    color: white;
-    text-align: center;
-}
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(42, 47, 53);
+        color: white;
+        text-align: center;
+    }
 
 }
 
@@ -121,13 +121,13 @@ body {
     flex-wrap: wrap;
 }
 
-  .form-container {
+.form-container {
     border: 2px solid #ccc;
     padding: 20px;
     background-color: #f5f5f5;
     width: 50%;
     margin: 0 auto;
-  }
+}
 
 /* Left half styles */
 
@@ -180,8 +180,8 @@ body {
 
 /*Fin: para añadir*/
 .container-form {
-  max-height: 500px; /* establece la altura máxima del contenedor */
-  overflow-y: auto; /* agrega una barra de desplazamiento vertical cuando el contenido excede la altura del contenedor */
+    max-height: 500px; /* establece la altura máxima del contenedor */
+    overflow-y: auto; /* agrega una barra de desplazamiento vertical cuando el contenido excede la altura del contenedor */
 }
 .panel {
     width: 30%;
@@ -215,14 +215,14 @@ body {
 }
 
 input[type=text],
-    input[type=number],
-    select,
-    input[type=date] {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #D9D9D9;
-        border-radius: 5px;
-        box-sizing: border-box;
+input[type=number],
+select,
+input[type=date] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #D9D9D9;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 /*Fin: para añadir*/
 

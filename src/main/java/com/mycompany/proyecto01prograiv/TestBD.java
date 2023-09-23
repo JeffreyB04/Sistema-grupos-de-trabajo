@@ -4,23 +4,28 @@
  */
 package com.mycompany.proyecto01prograiv;
 
-
 import com.mycompany.proyecto01prograiv.logic.Service;
+
 /**
  *
  * @author eeor2
  */
 public class TestBD {
-    
+
     public static void main(String[] args) {
         new TestBD().test();
     }
 
     public void test() {
-        Service estudiantes = Service.obtenerInstancia();
-        System.out.println(estudiantes);
-        System.out.println();
-
+    Service service = Service.obtenerInstancia();
+    System.out.println("Estudiantes:");
+    System.out.println(service.toString());
+    System.out.println();
+    
+    System.out.println("Grupos:");
+    service.actualizarGrupos(); // Asegúrate de actualizar los grupos
+    System.out.println(service.toStringGrupos());
+    System.out.println();
         /*try {
             estudiantes.actualizar();
             JAXBContext ctx = JAXBContext.newInstance(Service.class);
@@ -41,5 +46,5 @@ public class TestBD {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }*/
     }
-    
+
 }

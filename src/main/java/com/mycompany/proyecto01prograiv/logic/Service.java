@@ -19,7 +19,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 public class Service implements Serializable {
-    
+
     private Service() {
         try {
             InitialContext ctx = new InitialContext();
@@ -50,6 +50,7 @@ public class Service implements Serializable {
             DataSourceConnectionSource connectionSource
                     = new DataSourceConnectionSource(bd, bd.getURL());
             estudianteDAO = DaoManager.createDao(connectionSource, Estudiante.class);
+            grupoDAO = DaoManager.createDao(connectionSource, Grupo.class);
         } catch (SQLException ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
@@ -60,6 +61,45 @@ public class Service implements Serializable {
             instancia = new Service();
         }
         return instancia;
+    }
+
+    public int agregarGrupo(Grupo nuevo) throws SQLException {
+        return grupoDAO.create(nuevo);
+    }
+
+    public Grupo recuperarGrupo(int id) throws SQLException {
+        return grupoDAO.queryForId(id);
+    }
+
+    public int actualizarGrupo(Grupo grupo) throws SQLException {
+        return grupoDAO.update(grupo);
+    }
+
+    public int eliminarGrupo(int id) throws SQLException {
+        return grupoDAO.deleteById(id);
+    }
+
+    public List<Grupo> listarTodosGrupos() throws SQLException {
+        return grupoDAO.queryForAll();
+    }
+
+    public void actualizarGrupos() {
+        grupos.clear();
+        try {
+            grupos.addAll(listarTodosGrupos());
+        } catch (SQLException ex) {
+            System.err.printf("Excepción: '%s'%n", ex.getMessage());
+        }
+    }
+
+    public String toStringGrupos() {
+        StringBuilder r = new StringBuilder("{");
+        actualizar();
+        for (Grupo g : grupos) { 
+            r.append(String.format("\n\t%s,", g));
+        }
+        r.append("\n}");
+        return r.toString();
     }
 
     public int agregar(Estudiante nuevo) throws SQLException {
@@ -106,9 +146,14 @@ public class Service implements Serializable {
 
     private MysqlDataSource bd = null;
     private Dao<Estudiante, String> estudianteDAO;
+    private Dao<Grupo, Integer> grupoDAO;
 
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")
     private List<Estudiante> estudiantes = new ArrayList<>();
-    
+
+    @XmlElementWrapper(name = "grupos")
+    @XmlElement(name = "grupo")
+    private List<Grupo> grupos = new ArrayList<>();
+
 }

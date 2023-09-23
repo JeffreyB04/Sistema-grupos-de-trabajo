@@ -11,26 +11,26 @@
                     <a href="presentation/Index.jsp">Inicio</a>
                 </li>
                 <% if (usuario!=null){ %>                     
-                    <li >
-                       
-                        <ul>  <!--submenu --> </ul>
-                    </li> 
+                <li >
 
-                    <li class="logout" style="display: inline-block;">
-                        <a  href="presentation/login/logout" >Logout</a>
-                    </li>                
+                    <ul>  <!--submenu --> </ul>
+                </li> 
+
+                <li class="logout" style="display: inline-block;">
+                    <a  href="presentation/login/logout" >Logout</a>
+                </li>                
                 <% } %>
-                
+
                 <% if (estudiante==null){%>
-                    <li>
-                       
-                    </li>
+                <li>
+
+                </li>
                 <% }%>             
             </ul>
         </div>
     </div> 
-                   
+
     <% if (estudiante!=null){ %>       
-   
+
 </header>          
 

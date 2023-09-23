@@ -23,7 +23,7 @@
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
-         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -50,8 +50,8 @@
         </dependency>
         <dependency>
             <groupId>cr.ac.una</groupId>
-            <artifactId>ejemplo17_backend-1.0.0</artifactId>
-            <version>1.0.0</version>
+            <artifactId>dateConversion</artifactId>
+            <version>1.0.1</version>
             <type>jar</type>
         </dependency>
     </dependencies>

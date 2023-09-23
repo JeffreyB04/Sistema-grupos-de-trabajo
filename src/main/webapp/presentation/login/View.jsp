@@ -5,38 +5,38 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
- <%@ include file="/presentation/Head.jsp" %>
-</head>
-<body >
-  
-    <%@ include file="/presentation/Header.jsp" %>
+    <head>
+        <%@ include file="/presentation/Head.jsp" %>
+    </head>
+    <body >
+
+        <%@ include file="/presentation/Header.jsp" %>
 
         <% Model model= (Model) request.getAttribute("model"); %>
         <% Map<String,String> errores = (Map<String,String>) request.getAttribute("errores"); %>
         <% Map<String,String[]> form = (errores==null)?this.getForm(model):request.getParameterMap();%>
-        
+
         <form name="form" action="presentation/login/login" method="post" > 
             <div class="panel" style="width:30%;">
                 <div class="fila encabezado">Login</div>
                 <div class="fila">
-                      <div class="campo"><input class="<%=erroneo("idFld",errores)%>" placeholder="Id del usuario" type="text" name="idFld" value="<%=form.get("idFld")[0]%>" title="<%=title("idFld",errores)%>"></div>
+                    <div class="campo"><input class="<%=erroneo("idFld",errores)%>" placeholder="Id del usuario" type="text" name="idFld" value="<%=form.get("idFld")[0]%>" title="<%=title("idFld",errores)%>"></div>
                 </div>
                 <div class="fila">
-                  <div class="campo"><input class="<%=erroneo("claveFld",errores)%>" placeholder="Clave del usuario" type="password" name="claveFld" value="<%=form.get("claveFld")[0]%>" title="<%=title("claveFld",errores)%>"></div>
+                    <div class="campo"><input class="<%=erroneo("claveFld",errores)%>" placeholder="Clave del usuario" type="password" name="claveFld" value="<%=form.get("claveFld")[0]%>" title="<%=title("claveFld",errores)%>"></div>
                 </div>
                 <div class="fila encabezado" style="display: inline-block"><button class="search-button" style="margin-bottom: 25px; margin-top: 15px; margin-left: 0px; ">Ingresar</button> 
-                                                                           
+
                 </div>
-                
-                
+
+
                 <div style="float: right; margin-top: 15px;">Necesita cuenta nueva?</div>
-                
-                
+
+
             </div>
         </form>
-    <%@ include file="/presentation/Footer.jsp" %>                  
-</body>
+        <%@ include file="/presentation/Footer.jsp" %>                  
+    </body>
 </html>
 <%!
     private String erroneo(String campo, Map<String,String> errores){

@@ -35,3 +35,7 @@ INSERT INTO `bd_grupos`.`estudiante`
 	('402610333', '53326', 'Vargas Camacho', 'Gerick Joel', '29', '402610333'),
 	('208200529', '53326', 'Vargas Ramírez', 'José Andrés', '30', '208200529')
 	;
+
+INSERT INTO bd_grupos.grupo (secuencia, nombre, cupo, activo) VALUES (1, 'Grupo 1', 10, 1);
+INSERT INTO bd_grupos.grupo (secuencia, nombre, cupo, activo) VALUES (2, 'Grupo 2', 15, 1);
+

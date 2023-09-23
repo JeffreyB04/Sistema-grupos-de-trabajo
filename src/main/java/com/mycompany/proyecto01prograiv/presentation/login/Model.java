@@ -8,16 +8,17 @@ package com.mycompany.proyecto01prograiv.presentation.login;
 import com.mycompany.proyecto01prograiv.logic.Estudiante;
 
 public class Model {
+
     Estudiante current;
 
     public Model() {
         this.reset();
     }
-    
-    public void reset(){
-        setCurrent(new Estudiante());        
+
+    public void reset() {
+        setCurrent(new Estudiante());
     }
-    
+
     public Estudiante getCurrent() {
         return current;
     }
