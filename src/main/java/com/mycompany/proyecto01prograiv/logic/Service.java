@@ -20,7 +20,7 @@ import javax.naming.NamingException;
 
 public class Service implements Serializable {
 
-    private Service() {
+    public Service() {
         try {
             InitialContext ctx = new InitialContext();
             bd = (MysqlDataSource) ctx.lookup("jdbc/bd_grupos");
@@ -142,18 +142,18 @@ public class Service implements Serializable {
         return r.toString();
     }
 
-    private static Service instancia = null;
+    public static Service instancia = null;
 
-    private MysqlDataSource bd = null;
-    private Dao<Estudiante, String> estudianteDAO;
-    private Dao<Grupo, Integer> grupoDAO;
+    public MysqlDataSource bd = null;
+    public Dao<Estudiante, String> estudianteDAO;
+    public Dao<Grupo, Integer> grupoDAO;
 
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")
-    private List<Estudiante> estudiantes = new ArrayList<>();
+    public List<Estudiante> estudiantes = new ArrayList<>();
 
     @XmlElementWrapper(name = "grupos")
     @XmlElement(name = "grupo")
-    private List<Grupo> grupos = new ArrayList<>();
+    public List<Grupo> grupos = new ArrayList<>();
 
 }
