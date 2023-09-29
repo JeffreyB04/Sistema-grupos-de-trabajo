@@ -15,22 +15,15 @@ import com.mycompany.proyecto01prograiv.logic.Service;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author jeffr
  */
 public class Controller extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+ protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -47,60 +40,42 @@ public class Controller extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String clave = request.getParameter("clave");
+    String id = request.getParameter("id");
+    String clave = request.getParameter("clave");
 
-        // Obtain an instance of the Service class
-        Service service = Service.obtenerInstancia();
+    Service service = Service.obtenerInstancia();
 
-        try {
-            // Use the estudianteDAO to get a student by id
-            Estudiante estudiante = service.estudianteDAO.queryForId(id);
+    try {
+        Estudiante estudiante = service.estudianteDAO.queryForId(id);
 
-            if (estudiante != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("loggedInUser", estudiante);
-                response.sendRedirect("TablaEstudiante.jsp");
-            } else {
-                request.setAttribute("errorMessage", "Invalid id or clave");
-                RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
-                dispatcher.forward(request, response);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // You can handle the exception as needed
-            // You may also redirect to an error page or provide an appropriate response
+        if (estudiante != null && estudiante.getClave().equals(clave)) {
+            HttpSession session = request.getSession();
+            session.setAttribute("loggedInUser", estudiante);
+            response.sendRedirect("TablaEstudiante.jsp");
+        } else {
+            request.setAttribute("errorMessage", "Invalid id or clave");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
+            dispatcher.forward(request, response);
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        // Handle the database error appropriately
     }
+}
 
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.mycompany.proyecto01prograiv.presentation.login.Model" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +9,13 @@
 <body>
     <h1>Login Page</h1>
     
-    <!-- Display error message if login fails -->
     <c:if test="${not empty errorMessage}">
         <p class="error-message">${errorMessage}</p>
     </c:if>
     
     <form name="loginForm" action="${pageContext.request.contextPath}/Controller" method="post">
         <label for="id">ID:</label>
-        <input type="text" id="id" name="id" value="${model.current.id}" required><br><br>
+        <input type="text" id="id" name="id" value="" required><br><br>
         
         <label for="clave">Clave:</label>
         <input type="password" id="clave" name="clave" required><br><br>
@@ -26,3 +24,4 @@
     </form>
 </body>
 </html>
+
