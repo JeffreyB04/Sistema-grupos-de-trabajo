@@ -17,43 +17,54 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 public class Service implements Serializable {
+    
+    
+    private static Service instancia = null;
 
-    public Service() {
+    private DataSource bd = null;
+    private Dao<Estudiante, String> estudianteDAO;
+    private Dao<Grupo, Integer> grupoDAO;
+
+    private Service() {
         try {
             InitialContext ctx = new InitialContext();
-            bd = (MysqlDataSource) ctx.lookup("jdbc/bd_grupos");
+            bd = (DataSource) ctx.lookup("jdbc/bd_grupos");
             System.out.println("Usando JNDI para acceder a la base de datos..");
 
         } catch (NamingException | NullPointerException ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
 
             bd = new MysqlDataSource();
-            bd.setServerName("localhost");
-            bd.setPortNumber(3306);
-            bd.setDatabaseName("bd_grupos");
-            bd.setUser("root");
-            bd.setPassword("root");
+            MysqlDataSource mds = (MysqlDataSource) bd;
+            mds.setServerName("localhost");
+            mds.setPortNumber(3306);
+            mds.setDatabaseName("bd_grupos");
+            mds.setUser("root");
+            mds.setPassword("root");
 
             System.out.println("Usando el manejador JDBC para acceder a la base de datos..");
         }
-
         if (bd != null) {
-            System.out.printf("Origen de datos: %s%n", bd.getURL());
+            try {
+                String url = bd.getConnection().getMetaData().getURL();
+                System.out.printf("Origen de datos: %s%n", url);
+
+                DataSourceConnectionSource connectionSource = new DataSourceConnectionSource(bd, url);
+                estudianteDAO = DaoManager.createDao(connectionSource, Estudiante.class);
+                grupoDAO = DaoManager.createDao(connectionSource, Grupo.class);
+            } catch (SQLException ex) {
+                System.err.printf("Excepción: '%s'%n", ex.getMessage());
+            }
         } else {
             System.err.println("No se pudo establecer el origen de datos.");
         }
-        System.out.println();
-
-        try {
-            DataSourceConnectionSource connectionSource
-                    = new DataSourceConnectionSource(bd, bd.getURL());
-            estudianteDAO = DaoManager.createDao(connectionSource, Estudiante.class);
-            grupoDAO = DaoManager.createDao(connectionSource, Grupo.class);
-        } catch (SQLException ex) {
-            System.err.printf("Excepción: '%s'%n", ex.getMessage());
-        }
+    }
+    
+    public Service(Dao<Estudiante, String> estudianteDAO){
+        this.estudianteDAO = estudianteDAO;
     }
 
     public static Service obtenerInstancia() {
@@ -61,6 +72,14 @@ public class Service implements Serializable {
             instancia = new Service();
         }
         return instancia;
+    }
+    
+    public Dao<Estudiante, String> getEstudianteDAO() {
+        return estudianteDAO;
+    }
+
+    public Dao<Grupo, Integer> getGrupoDAO() {
+        return grupoDAO;
     }
 
     public int agregarGrupo(Grupo nuevo) throws SQLException {
@@ -152,18 +171,13 @@ public class Service implements Serializable {
         return r.toString();
     }
 
-    public static Service instancia = null;
-
-    public MysqlDataSource bd = null;
-    public Dao<Estudiante, String> estudianteDAO;
-    public Dao<Grupo, Integer> grupoDAO;
 
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")
-    public List<Estudiante> estudiantes = new ArrayList<>();
+    private List<Estudiante> estudiantes = new ArrayList<>();
 
     @XmlElementWrapper(name = "grupos")
     @XmlElement(name = "grupo")
-    public List<Grupo> grupos = new ArrayList<>();
+    private List<Grupo> grupos = new ArrayList<>();
 
 }

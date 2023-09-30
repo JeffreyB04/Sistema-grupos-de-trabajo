@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import com.mycompany.proyecto01prograiv.logic.Service;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -22,24 +23,13 @@ import java.util.Map;
  *
  * @author jeffr
  */
+//@WebServlet("/Controller")
 public class Controller extends HttpServlet {
- protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Controller</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Controller at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,30 +38,59 @@ public class Controller extends HttpServlet {
     }
 
     @Override
-protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    String id = request.getParameter("id");
-    String clave = request.getParameter("clave");
+        String id = request.getParameter("id");
+        String clave = request.getParameter("clave");
 
-    Service service = Service.obtenerInstancia();
+        Service service = Service.obtenerInstancia();
+        
+        try {
+        if (service != null) {
+            Service estudianteDAO = (Service) service.getEstudianteDAO();
+            
+            if (estudianteDAO != null) {
+                Estudiante estudiante = service.getEstudianteDAO().queryForId(id);
 
-    try {
-        Estudiante estudiante = service.estudianteDAO.queryForId(id);
-
-        if (estudiante != null && estudiante.getClave().equals(clave)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("loggedInUser", estudiante);
-            response.sendRedirect("TablaEstudiante.jsp");
+                if (estudiante != null && estudiante.getClave() != null && estudiante.getClave().equals(clave)) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("loggedInUser", estudiante);
+                    response.sendRedirect("TablaEstudiante.jsp");
+                } else {
+                    request.setAttribute("errorMessage", "Invalid id or clave");
+                    RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
+                    dispatcher.forward(request, response);
+                }
+            } else {
+                // Manejo de error si estudianteDAO es nulo
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "No se pudo acceder a la base de datos.");
+            }
         } else {
-            request.setAttribute("errorMessage", "Invalid id or clave");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
-            dispatcher.forward(request, response);
+            // Manejo de error si service es nulo
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "No se pudo inicializar el servicio.");
         }
     } catch (SQLException e) {
         e.printStackTrace();
         // Handle the database error appropriately
     }
-}
+
+        /*try {
+            Estudiante estudiante = service.getEstudianteDAO().queryForId(id);
+
+            if (estudiante != null && estudiante.getClave().equals(clave)) {
+                HttpSession session = request.getSession();
+                session.setAttribute("loggedInUser", estudiante);
+                response.sendRedirect("TablaEstudiante.jsp");
+            } else {
+                request.setAttribute("errorMessage", "Invalid id or clave");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
+                dispatcher.forward(request, response);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle the database error appropriately
+        }*/
+    }
 
     @Override
     public String getServletInfo() {
