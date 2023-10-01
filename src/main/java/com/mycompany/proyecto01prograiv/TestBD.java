@@ -17,15 +17,15 @@ public class TestBD {
     }
 
     public void test() {
-    Service service = Service.obtenerInstancia();
-    System.out.println("Estudiantes:");
-    System.out.println(service.toString());
-    System.out.println();
-    
-    System.out.println("Grupos:");
-    service.actualizarGrupos(); // Asegúrate de actualizar los grupos
-    System.out.println(service.toStringGrupos());
-    System.out.println();
+        Service service = Service.obtenerInstancia();
+        System.out.println("Estudiantes:");
+        System.out.println(service.toString());
+        System.out.println();
+
+        System.out.println("Grupos:");
+        service.actualizarGrupos(); // Asegúrate de actualizar los grupos
+        System.out.println(service.toStringGrupos());
+        System.out.println();
         /*try {
             estudiantes.actualizar();
             JAXBContext ctx = JAXBContext.newInstance(Service.class);

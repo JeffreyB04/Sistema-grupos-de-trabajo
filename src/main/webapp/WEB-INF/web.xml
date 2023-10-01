@@ -4,9 +4,49 @@
         <servlet-name>Controller</servlet-name>
         <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.Controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>crearGrupoServlet</servlet-name>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.CrearGrupoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultaGruposServlet</servlet-name>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.ConsultaGruposServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UnirseGrupoServlet</servlet-name>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.UnirseGrupoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultaEstudianteServlet</servlet-name>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.ConsultaEstudianteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultaGrupoTrabajoServlet</servlet-name>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.ConsultaGrupoTrabajoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>crearGrupoServlet</servlet-name>
+        <url-pattern>/crearGrupoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultaGruposServlet</servlet-name>
+        <url-pattern>/ConsultaGruposServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UnirseGrupoServlet</servlet-name>
+        <url-pattern>/UnirseGrupoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultaEstudianteServlet</servlet-name>
+        <url-pattern>/ConsultaEstudianteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultaGrupoTrabajoServlet</servlet-name>
+        <url-pattern>/ConsultaGrupoTrabajoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
