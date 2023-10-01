@@ -4,17 +4,13 @@
  */
 package com.mycompany.proyecto01prograiv.presentation.login;
 
-import com.mycompany.proyecto01prograiv.logic.Grupo;
 import com.mycompany.proyecto01prograiv.logic.Estudiante;
-import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.mycompany.proyecto01prograiv.logic.Service;
-import jakarta.servlet.annotation.WebServlet;
-import java.sql.SQLException;
 
 /**
  *

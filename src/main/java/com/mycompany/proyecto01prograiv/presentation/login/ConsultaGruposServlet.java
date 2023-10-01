@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.mycompany.proyecto01prograiv.logic.Service;
-import jakarta.servlet.annotation.WebServlet;
 import java.sql.SQLException;
 
 //@WebServlet("/consultaGruposServlet")
