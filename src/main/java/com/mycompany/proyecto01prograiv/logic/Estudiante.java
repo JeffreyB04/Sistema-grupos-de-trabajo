@@ -19,13 +19,13 @@ public class Estudiante implements Serializable {
 
     @Getter
     @Setter
-    @DatabaseField
+    @DatabaseField(id = true)
     private String id;
 
     @Getter
     @Setter
     @DatabaseField
-    private String nrc;
+    private int nrc;
 
     @Getter
     @Setter
@@ -40,7 +40,7 @@ public class Estudiante implements Serializable {
     @Getter
     @Setter
     @DatabaseField
-    private String secuencia;
+    private int secuencia;
 
     @Getter
     @Setter
@@ -50,7 +50,7 @@ public class Estudiante implements Serializable {
     @Getter
     @Setter
     @DatabaseField
-    private String grupo_id;
+    private int grupo_id;
 
     public java.sql.Date getNacimiento() {
         return ultimo_acceso;

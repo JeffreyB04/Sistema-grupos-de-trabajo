@@ -4,6 +4,7 @@
  */
 package com.mycompany.proyecto01prograiv.presentation.login;
 
+import com.j256.ormlite.dao.Dao;
 import com.mycompany.proyecto01prograiv.logic.Estudiante;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -47,7 +48,7 @@ public class Controller extends HttpServlet {
         
         try {
         if (service != null) {
-            Service estudianteDAO = (Service) service.getEstudianteDAO();
+            Dao<Estudiante, String> estudianteDAO = service.getEstudianteDAO();
             
             if (estudianteDAO != null) {
                 Estudiante estudiante = service.getEstudianteDAO().queryForId(id);
