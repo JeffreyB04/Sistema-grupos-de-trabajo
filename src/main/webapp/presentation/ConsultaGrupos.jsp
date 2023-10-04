@@ -1,3 +1,15 @@
+<!--
+ ===================================================================
+ *
+ * (c) 2023
+ *
+ * Jeffry Barquero Torres
+ * 
+ *
+ * version 1.0.0 2023-09-30
+ *
+ ===================================================================
+ -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>

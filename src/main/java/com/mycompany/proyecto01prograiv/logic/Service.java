@@ -1,3 +1,15 @@
+/**
+* -------------------------------------------------------------------
+*
+* (c) 2023
+*
+* @author: Jeffry Barquero Torres
+* @author: 
+* @author: 
+* @version 1.0.0 2023-10-07
+*
+* --------------------------------------------------------------------
+*/
 package com.mycompany.proyecto01prograiv.logic;
 
 import com.j256.ormlite.dao.Dao;
