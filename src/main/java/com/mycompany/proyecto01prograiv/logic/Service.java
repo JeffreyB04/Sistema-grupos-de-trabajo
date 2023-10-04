@@ -20,8 +20,14 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class Service implements Serializable {
-    
-    
+
+    public static Service obtenerInstancia() {
+        if (instancia == null) {
+            instancia = new Service();
+        }
+        return instancia;
+    }
+
     private static Service instancia = null;
 
     private DataSource bd = null;
@@ -62,18 +68,11 @@ public class Service implements Serializable {
             System.err.println("No se pudo establecer el origen de datos.");
         }
     }
-    
-    public Service(Dao<Estudiante, String> estudianteDAO){
+
+    public Service(Dao<Estudiante, String> estudianteDAO) {
         this.estudianteDAO = estudianteDAO;
     }
 
-    public static Service obtenerInstancia() {
-        if (instancia == null) {
-            instancia = new Service();
-        }
-        return instancia;
-    }
-    
     public Dao<Estudiante, String> getEstudianteDAO() {
         return estudianteDAO;
     }
@@ -114,7 +113,7 @@ public class Service implements Serializable {
     public String toStringGrupos() {
         StringBuilder r = new StringBuilder("{");
         actualizar();
-        for (Grupo g : grupos) { 
+        for (Grupo g : grupos) {
             r.append(String.format("\n\t%s,", g));
         }
         r.append("\n}");
@@ -149,17 +148,15 @@ public class Service implements Serializable {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
     }
-    
+
     // se hace un metodo bool para verifcar
-    
-   //public boolean verificar (String Id, String Clave){
+    //public boolean verificar (String Id, String Clave){
     //boolean r = false;{
     //   Estudiante e = recuperar(id);   
     //r = e.clave().equals(clave);
-   //}
+    //}
 //ejm 21
 //}
-
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder("{");
@@ -171,7 +168,16 @@ public class Service implements Serializable {
         return r.toString();
     }
 
+    public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String nombreGrupoTrabajo) throws SQLException {
+        List<Estudiante> estudiantes = null;
 
+        // Realizar la consulta en la base de datos para obtener los estudiantes por nombre del grupo de trabajo
+        if (estudianteDAO != null) {
+            estudiantes = estudianteDAO.queryForEq("nombreGrupoTrabajo", nombreGrupoTrabajo);
+        }
+
+        return estudiantes;
+    }
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")
     private List<Estudiante> estudiantes = new ArrayList<>();

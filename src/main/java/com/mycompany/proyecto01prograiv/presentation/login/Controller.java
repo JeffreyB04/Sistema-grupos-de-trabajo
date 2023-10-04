@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
                     if (estudiante != null && estudiante.getClave() != null && estudiante.getClave().equals(clave)) {
                         HttpSession session = request.getSession();
                         session.setAttribute("loggedInUser", estudiante);
-                        response.sendRedirect("/Proyecto01PrograIV/presentation/login/TablaEstudiante.jsp");
+                        response.sendRedirect("/Proyecto01PrograIV/presentation/TablaEstudiante.jsp");
                         System.out.println(estudiante);
                     } else {
                         request.setAttribute("errorMessage", "Invalid id or clave");
