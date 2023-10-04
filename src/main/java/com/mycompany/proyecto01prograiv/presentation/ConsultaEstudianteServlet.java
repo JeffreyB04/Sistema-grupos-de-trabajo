@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.mycompany.proyecto01prograiv.presentation.login;
+package com.mycompany.proyecto01prograiv.presentation;
 
 import com.mycompany.proyecto01prograiv.logic.Estudiante;
 import jakarta.servlet.ServletException;

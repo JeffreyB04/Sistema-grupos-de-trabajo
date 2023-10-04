@@ -6,23 +6,23 @@
     </servlet>
     <servlet>
         <servlet-name>crearGrupoServlet</servlet-name>
-        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.CrearGrupoServlet</servlet-class>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.CrearGrupoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ConsultaGruposServlet</servlet-name>
-        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.ConsultaGruposServlet</servlet-class>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.ConsultaGruposServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UnirseGrupoServlet</servlet-name>
-        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.UnirseGrupoServlet</servlet-class>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.UnirseGrupoServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ConsultaEstudianteServlet</servlet-name>
-        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.ConsultaEstudianteServlet</servlet-class>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.ConsultaEstudianteServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ConsultaGrupoTrabajoServlet</servlet-name>
-        <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.ConsultaGrupoTrabajoServlet</servlet-class>
+        <servlet-class>com.mycompany.proyecto01prograiv.presentation.ConsultaGrupoTrabajoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Controller</servlet-name>

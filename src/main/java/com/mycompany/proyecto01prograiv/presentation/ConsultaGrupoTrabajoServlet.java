@@ -1,4 +1,4 @@
-package com.mycompany.proyecto01prograiv.presentation.login;
+package com.mycompany.proyecto01prograiv.presentation;
 
 import com.mycompany.proyecto01prograiv.logic.Estudiante;
 import com.mycompany.proyecto01prograiv.logic.Service;
