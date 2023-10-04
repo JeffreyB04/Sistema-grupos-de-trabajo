@@ -30,7 +30,7 @@ public class ConsultaGrupoTrabajoServlet extends HttpServlet {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp"); // Redirecciona a una página de error en caso de excepción
+            response.sendRedirect("error.jsp");
         }
     }
 }

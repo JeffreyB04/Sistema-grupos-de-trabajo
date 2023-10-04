@@ -1,4 +1,3 @@
-
 package com.mycompany.proyecto01prograiv.presentation;
 
 import com.mycompany.proyecto01prograiv.logic.Estudiante;
@@ -9,10 +8,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.mycompany.proyecto01prograiv.logic.Service;
 
-/**
- *
- * @author jeffr
- */
 public class ConsultaEstudianteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,7 +16,6 @@ public class ConsultaEstudianteServlet extends HttpServlet {
         Service service = Service.obtenerInstancia();
 
         try {
-            // Consultar si el estudiante está incluido en algún grupo
             Estudiante estudiante = service.recuperar(estudianteID);
 
             if (estudiante != null && estudiante.getGrupo_id() != 0) {
@@ -35,7 +29,7 @@ public class ConsultaEstudianteServlet extends HttpServlet {
             request.getRequestDispatcher("/Proyecto01PrograIV/presentation/resultadoConsulta.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp"); // Redirecciona a una página de error en caso de excepción
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
         }
     }
 }

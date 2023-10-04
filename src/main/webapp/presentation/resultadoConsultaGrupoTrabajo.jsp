@@ -8,19 +8,19 @@
     <body>
         <h1>Resultado de la Consulta de Grupo de Trabajo</h1>
 
-    <c:if test="${not empty nombreGrupoTrabajo}">
-        <h2>Grupo de Trabajo: ${nombreGrupoTrabajo}</h2>
+        <c:if test="${not empty nombreGrupoTrabajo}">
+            <h2>Grupo de Trabajo: ${nombreGrupoTrabajo}</h2>
 
-        <c:if test="${not empty estudiantes}">
-            <h2>Estudiantes:</h2>
-            <ul>
+            <c:if test="${not empty estudiantes}">
+                <h2>Estudiantes:</h2>
+                <ul>
                 <c:forEach items="${estudiantes}" var="estudiante">
                     <li>${estudiante.nombre} (${estudiante.id})</li>
                 </c:forEach>
-            </ul>
+                </ul>
+            </c:if>
         </c:if>
-    </c:if>
 
-    <a href="consultaGrupoTrabajo.jsp">Volver a la consulta</a>
-</body>
+        <a href="consultaGrupoTrabajo.jsp">Volver a la consulta</a>
+    </body>
 </html>

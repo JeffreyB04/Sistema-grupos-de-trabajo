@@ -4,10 +4,7 @@
 <%@ page import="java.util.List" %>
 
 <%
-    // Obtiene la instancia del servicio
     Service service = Service.obtenerInstancia();
-
-    // Obtiene la lista de estudiantes
     List<Estudiante> estudiantes = service.listarTodos();
 %>
 <!DOCTYPE html>
@@ -28,7 +25,6 @@
                 <th>Grupo ID</th>
             </tr>
             <%
-                // Itera a través de la lista de estudiantes y muestra los datos en la tabla
                 for (Estudiante estudiante : estudiantes) {
             %>
             <tr>

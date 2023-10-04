@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.proyecto01prograiv.logic;
 
 import com.j256.ormlite.dao.Dao;
@@ -155,8 +150,9 @@ public class Service implements Serializable {
     //   Estudiante e = recuperar(id);   
     //r = e.clave().equals(clave);
     //}
-//ejm 21
-//}
+    //ejm 21
+    //}
+    
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder("{");
@@ -170,14 +166,12 @@ public class Service implements Serializable {
 
     public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String nombreGrupoTrabajo) throws SQLException {
         List<Estudiante> estudiantes = null;
-
-        // Realizar la consulta en la base de datos para obtener los estudiantes por nombre del grupo de trabajo
         if (estudianteDAO != null) {
             estudiantes = estudianteDAO.queryForEq("nombreGrupoTrabajo", nombreGrupoTrabajo);
         }
-
         return estudiantes;
     }
+    
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")
     private List<Estudiante> estudiantes = new ArrayList<>();

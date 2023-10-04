@@ -1,13 +1,4 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Sep 27, 2023, 4:06:46 PM
-    Author     : jeffr
-*/
 
-/* Style for the body element */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -16,19 +7,16 @@ body {
     text-align: center;
 }
 
-/* Style for the h1 element */
 h1 {
     color: #333;
     margin-top: 20px;
 }
 
-/* Style for the error message */
 .error-message {
-    color: #ff0000; /* Red color for error messages */
+    color: #ff0000;
     font-weight: bold;
 }
 
-/* Style for the form */
 form {
     background-color: #ffffff;
     border: 1px solid #cccccc;
@@ -39,13 +27,11 @@ form {
     margin: 0 auto;
 }
 
-/* Style for form labels */
 label {
     display: block;
     margin-bottom: 5px;
 }
 
-/* Style for form input fields */
 input[type="text"],
 input[type="password"] {
     width: 90%;
@@ -55,7 +41,6 @@ input[type="password"] {
     border-radius: 3px;
 }
 
-/* Style for the login button */
 input[type="submit"] {
     background-color: #007bff;
     color: #fff;
@@ -66,7 +51,6 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-/* Hover effect for the login button */
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
