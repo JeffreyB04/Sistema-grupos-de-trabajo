@@ -43,7 +43,7 @@ public class UnirseGrupoServlet extends HttpServlet {
                     if (grupo.getCupo() < 5) {
                         // Actualizar el ID del grupo en el estudiante
                         Estudiante estudiante = service.recuperar(estudianteIDUnirse);
-                        estudiante.setGrupo_id(Integer.toString(grupoID));
+                        //estudiante.setGrupo_id(Integer.toString(grupoID));
                         service.actualizar(estudiante);
 
                         // Incrementar el cupo del grupo
@@ -65,14 +65,14 @@ public class UnirseGrupoServlet extends HttpServlet {
 
                 if (estudiante != null) {
                     // Obtener el ID del grupo
-                    String grupoID = estudiante.getGrupo_id();
+                    int grupoID = estudiante.getGrupo_id();
 
                     // Desasignar al estudiante del grupo
-                    estudiante.setGrupo_id(null);
+                    estudiante.setGrupo_id(0);
                     service.actualizar(estudiante);
 
                     // Disminuir el cupo del grupo
-                    int grupoIdInt = Integer.parseInt(grupoID);
+                    int grupoIdInt = grupoID;
                     Grupo grupo = service.recuperarGrupo(grupoIdInt);
                     grupo.setCupo(grupo.getCupo() - 1);
                     service.actualizarGrupo(grupo);

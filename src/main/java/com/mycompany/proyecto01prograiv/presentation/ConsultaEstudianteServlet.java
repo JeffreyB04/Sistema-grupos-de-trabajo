@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package com.mycompany.proyecto01prograiv.presentation;
 
 import com.mycompany.proyecto01prograiv.logic.Estudiante;
@@ -27,7 +24,7 @@ public class ConsultaEstudianteServlet extends HttpServlet {
             // Consultar si el estudiante está incluido en algún grupo
             Estudiante estudiante = service.recuperar(estudianteID);
 
-            if (estudiante != null && estudiante.getGrupo_id() != null) {
+            if (estudiante != null && estudiante.getGrupo_id() != 0) {
                 // El estudiante está incluido en un grupo
                 request.setAttribute("resultado", "El estudiante está incluido en un grupo.");
             } else {
@@ -35,10 +32,10 @@ public class ConsultaEstudianteServlet extends HttpServlet {
                 request.setAttribute("resultado", "El estudiante no está incluido en ningún grupo.");
             }
 
-            request.getRequestDispatcher("resultadoConsulta.jsp").forward(request, response);
+            request.getRequestDispatcher("/Proyecto01PrograIV/presentation/resultadoConsulta.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp"); // Redirecciona a una página de error en caso de excepción
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp"); // Redirecciona a una página de error en caso de excepción
         }
     }
 }

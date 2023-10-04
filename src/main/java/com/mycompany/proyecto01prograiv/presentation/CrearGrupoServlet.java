@@ -48,16 +48,16 @@ public class CrearGrupoServlet extends HttpServlet {
 
                 // Actualizar el ID del grupo en el estudiante
                 Estudiante estudiante = service.recuperar(estudianteID);
-                estudiante.setGrupo_id(Integer.toString(grupoID));
+                estudiante.setGrupo_id(grupoID);
                 service.actualizar(estudiante);
 
-                response.sendRedirect("exito.jsp"); // Redirecciona a una página de éxito
+                response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp"); // Redirecciona a una página de éxito
             } else {
-                response.sendRedirect("error.jsp"); // Redirecciona a una página de error (grupo ya existe)
+                response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp"); // Redirecciona a una página de error (grupo ya existe)
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp"); // Redirecciona a una página de error en caso de excepción
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp"); // Redirecciona a una página de error en caso de excepción
         }
     }
 }
