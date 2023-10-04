@@ -2,7 +2,7 @@ package com.mycompany.proyecto01prograiv.logic;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
-import cr.ac.una.util.conversion.xml.SqlDateAdapter;
+import com.mycompany.proyecto01prograiv.xml.SqlDateAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;

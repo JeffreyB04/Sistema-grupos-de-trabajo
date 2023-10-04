@@ -1,18 +1,13 @@
-<%-- 
-    Document   : TablaEstudiante
-    Created on : Sep 27, 2023, 3:24:24 PM
-    Author     : jeffr
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla de Estudiantes</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
+</head>
+<body>
+    <h1>Tabla de Estudiantes</h1>
+    
+</body>
 </html>
