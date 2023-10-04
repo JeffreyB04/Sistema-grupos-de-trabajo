@@ -19,10 +19,8 @@ public class ConsultaEstudianteServlet extends HttpServlet {
             Estudiante estudiante = service.recuperar(estudianteID);
 
             if (estudiante != null && estudiante.getGrupo_id() != 0) {
-                // El estudiante está incluido en un grupo
                 request.setAttribute("resultado", "El estudiante está incluido en un grupo.");
             } else {
-                // El estudiante no está incluido en ningún grupo
                 request.setAttribute("resultado", "El estudiante no está incluido en ningún grupo.");
             }
 
