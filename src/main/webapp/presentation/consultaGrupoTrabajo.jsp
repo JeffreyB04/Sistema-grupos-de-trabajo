@@ -20,7 +20,7 @@
     <body>
         <h1>Consulta de Grupo de Trabajo</h1>
 
-        <form action="ConsultaGrupoTrabajoServlet" method="post">
+        <form action="${pageContext.request.contextPath}/ConsultaGrupoTrabajoServlet" method="post">
             <label for="nombreGrupoTrabajo">Nombre del Grupo de Trabajo:</label>
             <input type="text" id="nombreGrupoTrabajo" name="nombreGrupoTrabajo" required><br><br>
 

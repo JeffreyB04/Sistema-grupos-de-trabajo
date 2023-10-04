@@ -5,7 +5,7 @@
         <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.Controller</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>crearGrupoServlet</servlet-name>
+        <servlet-name>CrearGrupoServlet</servlet-name>
         <servlet-class>com.mycompany.proyecto01prograiv.presentation.CrearGrupoServlet</servlet-class>
     </servlet>
     <servlet>
@@ -29,8 +29,8 @@
         <url-pattern>/Controller</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>crearGrupoServlet</servlet-name>
-        <url-pattern>/crearGrupoServlet</url-pattern>
+        <servlet-name>CrearGrupoServlet</servlet-name>
+        <url-pattern>/CrearGrupoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConsultaGruposServlet</servlet-name>

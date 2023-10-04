@@ -22,7 +22,7 @@
     <body>
         <h1>Consulta de Grupos</h1>
 
-        <form action="ConsultaGruposServlet" method="POST">
+        <form action="${pageContext.request.contextPath}/ConsultaGruposServlet" method="POST">
             <label for="nombreGrupo">Nombre del Grupo:</label>
             <input type="text" id="nombreGrupo" name="nombreGrupo">
             <input type="submit" value="Buscar">

@@ -20,7 +20,7 @@
     <body>
         <h1>Consulta de Estudiante</h1>
 
-        <form action="ConsultaEstudianteServlet" method="post">
+        <form action="${pageContext.request.contextPath}/ConsultaEstudianteServlet" method="post">
             <label for="estudianteID">Ingrese el ID del Estudiante:</label>
             <input type="text" id="estudianteID" name="estudianteID" required><br><br>
 

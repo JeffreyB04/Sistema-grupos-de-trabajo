@@ -16,23 +16,24 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formación de Grupos</title>
-    </head>
-    <body>
-        <h1>Formación de Grupos</h1>
+    <link rel="stylesheet" type="text/css" href="/css/grupos.css"> 
+</head>
+<body>
+    <h1>Formación de Grupos</h1>
 
-        <h2>Crear un Nuevo Grupo</h2>
-        <form action="CrearGrupoServlet" method="POST">
-            <label for="nombreGrupo">Nombre del Grupo:</label>
-            <input type="text" id="nombreGrupo" name="nombreGrupo" required><br><br>
+    <h2>Crear un Nuevo Grupo</h2>
+    <form action="${pageContext.request.contextPath}/CrearGrupoServlet" method="POST">
+        <label for="nombreGrupo">Nombre del Grupo:</label>
+        <input type="text" id="nombreGrupo" name="nombreGrupo" required><br><br>
 
-            <label for="estudianteID">Tu ID de Estudiante:</label>
-            <input type="text" id="estudianteID" name="estudianteID" required><br><br>
+        <label for="estudianteID">Tu ID de Estudiante:</label>
+        <input type="text" id="estudianteID" name="estudianteID" required><br><br>
 
-            <input type="submit" value="Crear Grupo">
-        </form>
+        <input type="submit" value="Crear Grupo">
+    </form>
 
         <h2>Unirse a un Grupo Existente</h2>
-        <form action="UnirseGrupoServlet" method="POST">
+        <form action="${pageContext.request.contextPath}/UnirseGrupoServlet" method="POST">
             <label for="codigoGrupo">Código del Grupo:</label>
             <input type="text" id="codigoGrupo" name="codigoGrupo" required><br><br>
 
@@ -44,7 +45,7 @@
         </form>
 
         <h2>Desasignar Estudiante de un Grupo</h2>
-        <form action="UnirseGrupoServlet" method="POST">
+        <form action="${pageContext.request.contextPath}/UnirseGrupoServlet" method="POST">
             <label for="estudianteIDDesasignar">Tu ID de Estudiante:</label>
             <input type="text" id="estudianteIDDesasignar" name="estudianteIDDesasignar" required><br><br>
 

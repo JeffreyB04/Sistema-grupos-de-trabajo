@@ -155,15 +155,6 @@ public class Service implements Serializable {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
     }
-
-    // se hace un metodo bool para verifcar
-    //public boolean verificar (String Id, String Clave){
-    //boolean r = false;{
-    //   Estudiante e = recuperar(id);   
-    //r = e.clave().equals(clave);
-    //}
-    //ejm 21
-    //}
     
     @Override
     public String toString() {
