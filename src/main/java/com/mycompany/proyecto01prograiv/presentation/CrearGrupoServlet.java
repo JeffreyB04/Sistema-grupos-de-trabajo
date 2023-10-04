@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.mycompany.proyecto01prograiv.presentation;
 
 import com.mycompany.proyecto01prograiv.logic.Grupo;
@@ -15,19 +11,15 @@ import java.io.IOException;
 import com.mycompany.proyecto01prograiv.logic.Service;
 import java.sql.SQLException;
 
-//@WebServlet("/crearGrupoServlet")
 public class CrearGrupoServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Obtener datos del formulario
         String nombreGrupo = request.getParameter("nombreGrupo");
         String estudianteID = request.getParameter("estudianteID");
 
-        // Crear una instancia del servicio
         Service service = Service.obtenerInstancia();
 
         try {
-            // Verificar si el grupo ya existe
             List<Grupo> grupos = service.listarTodosGrupos();
             boolean grupoExistente = false;
             for (Grupo grupo : grupos) {
@@ -38,26 +30,24 @@ public class CrearGrupoServlet extends HttpServlet {
             }
 
             if (!grupoExistente) {
-                // Crear un nuevo grupo
                 Grupo nuevoGrupo = new Grupo();
                 nuevoGrupo.setNombre(nombreGrupo);
                 nuevoGrupo.setActivo(true);
-                nuevoGrupo.setSecuencia(1); // Puedes establecer la secuencia según tu lógica
+                nuevoGrupo.setSecuencia(1);
 
                 int grupoID = service.agregarGrupo(nuevoGrupo);
 
-                // Actualizar el ID del grupo en el estudiante
                 Estudiante estudiante = service.recuperar(estudianteID);
                 estudiante.setGrupo_id(grupoID);
                 service.actualizar(estudiante);
 
-                response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp"); // Redirecciona a una página de éxito
+                response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
             } else {
-                response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp"); // Redirecciona a una página de error (grupo ya existe)
+                response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp"); // Redirecciona a una página de error en caso de excepción
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
         }
     }
 }

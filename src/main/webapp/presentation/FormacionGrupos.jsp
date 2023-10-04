@@ -1,8 +1,3 @@
-<%-- 
-    Document   : FormacionGrupos
-    Created on : Oct 1, 2023, 9:03:23 AM
-    Author     : jeffr
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

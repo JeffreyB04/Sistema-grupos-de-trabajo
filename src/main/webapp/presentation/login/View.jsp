@@ -16,10 +16,10 @@
     <form name="loginForm" action="${pageContext.request.contextPath}/Controller" method="post">
         <label for="id">ID:</label>
         <input type="text" id="id" name="id" required><br><br>
-        
+
         <label for="clave">Clave:</label>
         <input type="password" id="clave" name="clave" required><br><br>
-        
+
         <input type="submit" value="Login">
     </form>
 </body>

@@ -1,4 +1,3 @@
-
 package com.mycompany.proyecto01prograiv.presentation.login;
 
 import com.j256.ormlite.dao.Dao;
@@ -12,7 +11,6 @@ import com.mycompany.proyecto01prograiv.logic.Service;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
-
 
 public class Controller extends HttpServlet {
 
@@ -30,7 +28,7 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String id = request.getParameter("id");
         String clave = request.getParameter("clave");
 
