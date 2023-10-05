@@ -28,7 +28,7 @@ public class UnirseGrupoServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null) {
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
             return;
         }
 
@@ -50,12 +50,12 @@ public class UnirseGrupoServlet extends HttpServlet {
                         grupo.setCupo(grupo.getCupo() + 1);
                         service.actualizarGrupo(grupo);
 
-                        response.sendRedirect("exito.jsp");
+                        response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
                     } else {
-                        response.sendRedirect("grupoLleno.jsp");
+                        response.sendRedirect("/Proyecto01PrograIV/presentation//Proyecto01PrograIV/presentation/grupoLleno.jsp");
                     }
                 } else {
-                    response.sendRedirect("grupoNoExiste.jsp");
+                    response.sendRedirect("/Proyecto01PrograIV/presentation/grupoNoExiste.jsp");
                 }
             } else if (action.equals("desasignar")) {
                 String estudianteIDDesasignar = request.getParameter("estudianteIDDesasignar");
@@ -77,16 +77,16 @@ public class UnirseGrupoServlet extends HttpServlet {
                         service.eliminarGrupo(grupoIdInt);
                     }
 
-                    response.sendRedirect("exitoDesasignar.jsp");
+                    response.sendRedirect("/Proyecto01PrograIV/presentation/exitoDesasignar.jsp");
                 } else {
-                    response.sendRedirect("errorDesasignar.jsp");
+                    response.sendRedirect("/Proyecto01PrograIV/presentation/errorDesasignar.jsp");
                 }
             } else {
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
             }
         } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
         }
     }
 }

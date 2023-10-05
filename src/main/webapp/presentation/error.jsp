@@ -20,6 +20,6 @@
     <body>
         <h1>Error</h1>
         <p>Ocurrió un error durante la operación.</p>
-        <a href="Index.jsp">Volver al Inicio</a>
+        <a href="/Proyecto01PrograIV/Index.jsp">Volver al Inicio</a>
     </body>
 </html>

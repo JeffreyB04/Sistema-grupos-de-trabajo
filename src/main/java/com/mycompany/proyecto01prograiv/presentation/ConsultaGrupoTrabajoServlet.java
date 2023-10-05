@@ -35,14 +35,14 @@ public class ConsultaGrupoTrabajoServlet extends HttpServlet {
             if (!estudiantes.isEmpty()) {
                 request.setAttribute("nombreGrupoTrabajo", nombreGrupoTrabajo);
                 request.setAttribute("estudiantes", estudiantes);
-                request.getRequestDispatcher("resultadoConsultaGrupoTrabajo.jsp").forward(request, response);
+                request.getRequestDispatcher("/Proyecto01PrograIV/presentation/resultadoConsultaGrupoTrabajo.jsp").forward(request, response);
             } else {
                 request.setAttribute("mensaje", "No se encontraron estudiantes asociados al grupo de trabajo " + nombreGrupoTrabajo);
-                request.getRequestDispatcher("errorConsultaGrupoTrabajo.jsp").forward(request, response);
+                request.getRequestDispatcher("/Proyecto01PrograIV/presentation/errorConsultaGrupoTrabajo.jsp").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
         }
     }
 }

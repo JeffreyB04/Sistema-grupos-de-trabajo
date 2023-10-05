@@ -20,6 +20,6 @@
     <body>
         <h1>Error al Desasignar Estudiante</h1>
         <p>Ha ocurrido un error al intentar desasignar al estudiante del grupo.</p>
-        <a href="Index.jsp">Volver a la página principal</a>
+        <a href="/Proyecto01PrograIV/Index.jsp">Volver a la página principal</a>
     </body>
 </html>

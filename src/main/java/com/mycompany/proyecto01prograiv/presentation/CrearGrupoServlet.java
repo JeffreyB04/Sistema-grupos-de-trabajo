@@ -22,44 +22,65 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.mycompany.proyecto01prograiv.logic.Service;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class CrearGrupoServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nombreGrupo = request.getParameter("nombreGrupo");
-        String estudianteID = request.getParameter("estudianteID");
+ protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    String nombreGrupo = request.getParameter("nombreGrupo");
+    String estudianteID = request.getParameter("estudianteID");
 
-        Service service = Service.obtenerInstancia();
+    Service service = Service.obtenerInstancia();
 
-        try {
-            List<Grupo> grupos = service.listarTodosGrupos();
-            boolean grupoExistente = false;
-            for (Grupo grupo : grupos) {
-                if (grupo.getNombre().equals(nombreGrupo)) {
-                    grupoExistente = true;
-                    break;
-                }
+    try {
+        List<Grupo> grupos = service.listarTodosGrupos();
+        boolean grupoExistente = false;
+        Grupo grupoEncontrado = null;
+
+        for (Grupo grupo : grupos) {
+            if (grupo.getNombre().equals(nombreGrupo)) {
+                grupoExistente = true;
+                grupoEncontrado = grupo;
+                break;
             }
+        }
 
-            if (!grupoExistente) {
-                Grupo nuevoGrupo = new Grupo();
-                nuevoGrupo.setNombre(nombreGrupo);
-                nuevoGrupo.setActivo(true);
-                nuevoGrupo.setSecuencia(1);
+        if (!grupoExistente) {
+            Grupo nuevoGrupo = new Grupo();
+            nuevoGrupo.setNombre(nombreGrupo);
+            nuevoGrupo.setActivo(true);
 
-                int grupoID = service.agregarGrupo(nuevoGrupo);
 
+            Random random = new Random();
+            int secuenciaAleatoria = random.nextInt(200) + 1;
+            nuevoGrupo.setSecuencia(secuenciaAleatoria);
+            nuevoGrupo.setCupo(0); 
+
+            int grupoID = service.agregarGrupo(nuevoGrupo);
+
+            Estudiante estudiante = service.recuperar(estudianteID);
+            estudiante.setGrupo_id(grupoID);
+            service.actualizar(estudiante);
+
+            response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
+        } else {
+            if (grupoEncontrado.getCupo() > 0) {
                 Estudiante estudiante = service.recuperar(estudianteID);
-                estudiante.setGrupo_id(grupoID);
+                estudiante.setGrupo_id(grupoEncontrado.getId());
                 service.actualizar(estudiante);
+
+                // Reducir el cupo del grupo en 1
+                grupoEncontrado.setCupo(grupoEncontrado.getCupo() - 1);
+                service.actualizarGrupo(grupoEncontrado);
 
                 response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
             } else {
-                response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/grupoLleno.jsp");
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
         }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
     }
+}
 }

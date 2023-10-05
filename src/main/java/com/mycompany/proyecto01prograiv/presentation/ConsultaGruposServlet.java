@@ -30,10 +30,10 @@ public class ConsultaGruposServlet extends HttpServlet {
         try {
             List<Grupo> grupos = service.listarTodosGrupos();
             request.setAttribute("grupos", grupos);
-            request.getRequestDispatcher("ConsultaGrupos.jsp").forward(request, response);
+            request.getRequestDispatcher("/Proyecto01PrograIV/presentation/ConsultaGrupos.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
         }
     }
 }

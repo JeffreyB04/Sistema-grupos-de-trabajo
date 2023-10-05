@@ -20,6 +20,6 @@
     <body>
         <h1>Operación Exitosa</h1>
         <p>El grupo se creó correctamente.</p>
-        <a href="Index.jsp">Volver al Inicio</a>
+        <a href="/Proyecto01PrograIV/Index.jsp">Volver al Inicio</a>
     </body>
 </html>

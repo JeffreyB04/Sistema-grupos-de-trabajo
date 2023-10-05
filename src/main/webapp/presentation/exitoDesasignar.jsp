@@ -20,6 +20,6 @@
     <body>
         <h1>Éxito al Desasignar Estudiante</h1>
         <p>El estudiante ha sido desasignado del grupo exitosamente.</p>
-        <a href="Index.jsp">Volver a la página principal</a>
+        <a href="/Proyecto01PrograIV/Index.jsp">Volver a la página principal</a>
     </body>
 </html>
