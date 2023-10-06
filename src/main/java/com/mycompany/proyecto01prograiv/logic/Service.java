@@ -167,10 +167,10 @@ public class Service implements Serializable {
         return r.toString();
     }
 
-    public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String nombreGrupoTrabajo) throws SQLException {
+    public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String grupo_id) throws SQLException {
         List<Estudiante> estudiantes = null;
         if (estudianteDAO != null) {
-            estudiantes = estudianteDAO.queryForEq("nombreGrupoTrabajo", nombreGrupoTrabajo);
+            estudiantes = estudianteDAO.queryForEq("grupo_id", grupo_id);
         }
         return estudiantes;
     }

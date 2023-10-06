@@ -54,5 +54,9 @@
         <a href="FormacionGrupos.jsp">Ir a Formación de Grupos</a>
         <br>
         <a href="ConsultaGrupos.jsp">Consultar Grupos</a>
+                <br>
+        <a href="consultaEstudiante.jsp">Consultar estudiante</a>
+                <br>
+        <a href="consultaGrupoTrabajo.jsp">Consultar por grupo de trabajo</a>
     </body>
 </html>

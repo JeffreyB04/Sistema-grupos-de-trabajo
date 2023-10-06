@@ -45,6 +45,7 @@ public class UnirseGrupoServlet extends HttpServlet {
                 if (grupo != null) {
                     if (grupo.getCupo() < 5) {
                         Estudiante estudiante = service.recuperar(estudianteIDUnirse);
+                        estudiante.setGrupo_id(grupoID);
                         service.actualizar(estudiante);
 
                         grupo.setCupo(grupo.getCupo() + 1);
