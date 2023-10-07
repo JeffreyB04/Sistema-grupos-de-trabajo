@@ -1,15 +1,15 @@
 /**
-* -------------------------------------------------------------------
-*
-* (c) 2023
-*
-* @author: Jeffry Barquero Torres
-* @author: 
-* @author: 
-* @version 1.0.0 2023-10-07
-*
-* --------------------------------------------------------------------
-*/
+ * -------------------------------------------------------------------
+ *
+ * (c) 2023
+ *
+ * @author: Jeffry Barquero Torres
+ * @author:
+ * @author:
+ * @version 1.0.0 2023-10-07
+ *
+ * --------------------------------------------------------------------
+ */
 package com.mycompany.proyecto01prograiv.presentation;
 
 import com.mycompany.proyecto01prograiv.logic.Grupo;
@@ -26,7 +26,7 @@ import java.util.Random;
 
 public class CrearGrupoServlet extends HttpServlet {
 
- protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String nombreGrupo = request.getParameter("nombreGrupo");
     String estudianteID = request.getParameter("estudianteID");
 
@@ -50,21 +50,23 @@ public class CrearGrupoServlet extends HttpServlet {
             nuevoGrupo.setNombre(nombreGrupo);
             nuevoGrupo.setActivo(true);
 
-
             Random random = new Random();
-            int secuenciaAleatoria = random.nextInt(200) + 1;
+            int secuenciaAleatoria = random.nextInt(2000) + 1;
             nuevoGrupo.setSecuencia(secuenciaAleatoria);
-            nuevoGrupo.setCupo(0); 
+            nuevoGrupo.setCupo(0);
 
             int grupoID = service.agregarGrupo(nuevoGrupo);
 
             Estudiante estudiante = service.recuperar(estudianteID);
+
+            // Asigna el ID del grupo al estudiante después de agregar el grupo
             estudiante.setGrupo_id(grupoID);
+
             service.actualizar(estudiante);
 
             response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
         } else {
-            if (grupoEncontrado.getCupo() > 0) {
+            if (grupoEncontrado.getCupo() < 5) {
                 Estudiante estudiante = service.recuperar(estudianteID);
                 estudiante.setGrupo_id(grupoEncontrado.getId());
                 service.actualizar(estudiante);

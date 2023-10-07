@@ -9,7 +9,7 @@
  * version 1.0.0 2023-09-30
  *
  ===================================================================
- -->
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.mycompany.proyecto01prograiv.logic.Service" %>
 <%@ page import="com.mycompany.proyecto01prograiv.logic.Grupo" %>
@@ -40,13 +40,13 @@
             <%
                 for (Grupo grupo : grupos) {
             %>
-                <tr>
-                    <td><%= grupo.getId() %></td>
-                    <td><%= grupo.getSecuencia() %></td>
-                    <td><%= grupo.getNombre() %></td>
-                    <td><%= grupo.getCupo() %></td>
-                    <td><%= grupo.isActivo() %></td>
-                </tr>
+            <tr>
+                <td><%= grupo.getId() %></td>
+                <td><%= grupo.getSecuencia() %></td>
+                <td><%= grupo.getNombre() %></td>
+                <td><%= grupo.getCupo() %></td>
+                <td><%= grupo.isActivo() %></td>
+            </tr>
             <%
                 }
             %>

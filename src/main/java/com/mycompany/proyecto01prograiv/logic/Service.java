@@ -1,15 +1,15 @@
 /**
-* -------------------------------------------------------------------
-*
-* (c) 2023
-*
-* @author: Jeffry Barquero Torres
-* @author: 
-* @author: 
-* @version 1.0.0 2023-10-07
-*
-* --------------------------------------------------------------------
-*/
+ * -------------------------------------------------------------------
+ *
+ * (c) 2023
+ *
+ * @author: Jeffry Barquero Torres
+ * @author:
+ * @author:
+ * @version 1.0.0 2023-10-07
+ *
+ * --------------------------------------------------------------------
+ */
 package com.mycompany.proyecto01prograiv.logic;
 
 import com.j256.ormlite.dao.Dao;
@@ -155,7 +155,7 @@ public class Service implements Serializable {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
         }
     }
-    
+
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder("{");
@@ -174,7 +174,7 @@ public class Service implements Serializable {
         }
         return estudiantes;
     }
-    
+
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")
     private List<Estudiante> estudiantes = new ArrayList<>();

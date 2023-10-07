@@ -1,16 +1,15 @@
 /**
-* -------------------------------------------------------------------
-*
-* (c) 2023
-*
-* @author: Jeffry Barquero Torres
-* @author: 
-* @author: 
-* @version 1.0.0 2023-10-07
-*
-* --------------------------------------------------------------------
-*/
-
+ * -------------------------------------------------------------------
+ *
+ * (c) 2023
+ *
+ * @author: Jeffry Barquero Torres
+ * @author:
+ * @author:
+ * @version 1.0.0 2023-10-07
+ *
+ * --------------------------------------------------------------------
+ */
 package com.mycompany.proyecto01prograiv.logic;
 
 import com.j256.ormlite.field.DatabaseField;
@@ -64,7 +63,7 @@ public class Estudiante implements Serializable {
     @Getter
     @Setter
     @DatabaseField
-    private int grupo_id;
+    private Integer grupo_id;
 
     public java.sql.Date getNacimiento() {
         return ultimo_acceso;
