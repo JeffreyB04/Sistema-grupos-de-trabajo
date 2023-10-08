@@ -1,3 +1,15 @@
+/**
+ * -------------------------------------------------------------------
+ *
+ * (c) 2023
+ *
+ * @author: Jeffry Barquero Torres
+ * @author:
+ * @author:
+ * @version 1.0.0 2023-10-07
+ *
+ * --------------------------------------------------------------------
+ */
 package com.mycompany.proyecto01prograiv.logic;
 
 import com.j256.ormlite.dao.Dao;
@@ -144,15 +156,6 @@ public class Service implements Serializable {
         }
     }
 
-    // se hace un metodo bool para verifcar
-    //public boolean verificar (String Id, String Clave){
-    //boolean r = false;{
-    //   Estudiante e = recuperar(id);   
-    //r = e.clave().equals(clave);
-    //}
-    //ejm 21
-    //}
-    
     @Override
     public String toString() {
         StringBuilder r = new StringBuilder("{");
@@ -164,14 +167,14 @@ public class Service implements Serializable {
         return r.toString();
     }
 
-    public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String nombreGrupoTrabajo) throws SQLException {
+    public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String grupo_id) throws SQLException {
         List<Estudiante> estudiantes = null;
         if (estudianteDAO != null) {
-            estudiantes = estudianteDAO.queryForEq("nombreGrupoTrabajo", nombreGrupoTrabajo);
+            estudiantes = estudianteDAO.queryForEq("grupo_id", grupo_id);
         }
         return estudiantes;
     }
-    
+
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")
     private List<Estudiante> estudiantes = new ArrayList<>();

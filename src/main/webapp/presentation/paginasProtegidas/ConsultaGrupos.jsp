@@ -1,37 +1,58 @@
+<!--
+ ===================================================================
+ *
+ * (c) 2023
+ *
+ * Jeffry Barquero Torres
+ * 
+ *
+ * version 1.0.0 2023-09-30
+ *
+ ===================================================================
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ page import="com.mycompany.proyecto01prograiv.logic.Service" %>
+<%@ page import="com.mycompany.proyecto01prograiv.logic.Grupo" %>
+<%@ page import="java.util.List" %>
+
+<%
+    Service service = Service.obtenerInstancia();
+    List<Grupo> grupos = service.listarTodosGrupos();
+%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consulta de Grupos</title>
+        <meta charset="UTF-8">
+        <title>Lista de Grupos</title>
     </head>
     <body>
-        <h1>Consulta de Grupos</h1>
-
-        <form action="ConsultaGruposServlet" method="POST">
-            <label for="nombreGrupo">Nombre del Grupo:</label>
-            <input type="text" id="nombreGrupo" name="nombreGrupo">
-            <input type="submit" value="Buscar">
-        </form>
-
-        <h2>Resultados de la Búsqueda</h2>
+        <h1>Lista de Grupos</h1>
         <table border="1">
             <tr>
                 <th>ID</th>
-                <th>Nombre del Grupo</th>
+                <th>Secuencia</th>
+                <th>Nombre</th>
                 <th>Cupo</th>
                 <th>Activo</th>
             </tr>
-            <c:forEach var="grupo" items="${grupos}">
-                <tr>
-                    <td>${grupo.id}</td>
-                    <td>${grupo.nombre}</td>
-                    <td>${grupo.cupo}</td>
-                    <td>${grupo.activo ? 'Sí' : 'No'}</td>
-                </tr>
-            </c:forEach>
+            <% out.println("Número de grupos en la lista: " + grupos.size()); %>
+
+            <%
+                for (Grupo grupo : grupos) {
+            %>
+            <tr>
+                <td><%= grupo.getId() %></td>
+                <td><%= grupo.getSecuencia() %></td>
+                <td><%= grupo.getNombre() %></td>
+                <td><%= grupo.getCupo() %></td>
+                <td><%= grupo.isActivo() %></td>
+            </tr>
+            <%
+                }
+            %>
         </table>
+        <a href="FormacionGrupos.jsp">Ir a Formación de Grupos</a>
+        <br>
+        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
     </body>
 </html>

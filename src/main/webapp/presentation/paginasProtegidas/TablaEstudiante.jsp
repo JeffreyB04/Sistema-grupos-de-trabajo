@@ -1,3 +1,15 @@
+<!--
+ ===================================================================
+ *
+ * (c) 2023
+ *
+ * Jeffry Barquero Torres
+ * 
+ *
+ * version 1.0.0 2023-09-30
+ *
+ ===================================================================
+-->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="com.mycompany.proyecto01prograiv.logic.Service" %>
 <%@ page import="com.mycompany.proyecto01prograiv.logic.Estudiante" %>
@@ -49,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <h1>Lista de Estudiantes</h1>
+         <h1>Lista de Estudiantes</h1>
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -77,6 +89,10 @@
         <a href="FormacionGrupos.jsp">Ir a Formación de Grupos</a>
         <br>
         <a href="ConsultaGrupos.jsp">Consultar Grupos</a>
+        <br>
+        <a href="consultaEstudiante.jsp">Consultar estudiante</a>
+        <br>
+        <a href="consultaGrupoTrabajo.jsp">Consultar por grupo de trabajo</a>
         
     </body>
 </html>
