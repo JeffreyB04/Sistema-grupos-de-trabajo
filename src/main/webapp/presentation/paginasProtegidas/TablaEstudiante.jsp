@@ -24,8 +24,42 @@
     <head>
         <meta charset="UTF-8">
         <title>Lista de Estudiantes</title>
+                <link href="../../css/tablaEstudiante.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <div class="box">
+            <a class="button" href="#popup1">Cambiar clave</a>
+        </div>
+        <div>
+            <form action="${pageContext.request.contextPath}/Controller" method="post">
+                <input type="hidden" name="action" value="logout">
+                <input type="submit" value="Cerrar sesión">
+            </form>
+
+        </div>
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Cambiar Clave</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <c:if test="${not empty errorMessage}">
+                        <p class="error-message">${errorMessage}</p>
+                    </c:if>
+
+                    <form name="changePassFrom" action="${pageContext.request.contextPath}/Controller" method="post">
+                        <input type="hidden" name="action" value="cambiarClave">
+                        <label for="claveActual">Ingrese clave actual:</label>
+                        <input type="text" id="claveActual" name="claveActual" required><br><br>
+
+                        <label for="nuevaClave">Ingrese nueva clave:</label>
+                        <input type="password" id="nuevaClave" name="clave" required><br><br>
+
+                        <input type="submit" value="Aplicar">
+                    </form>
+                </div>
+            </div>
+        </div>
         <h1>Lista de Estudiantes</h1>
         <table border="1">
             <tr>

@@ -43,13 +43,13 @@ public class DesasignarServlet extends HttpServlet {
                     service.eliminarGrupo(grupoID);
                 }
 
-                response.sendRedirect("/Proyecto01PrograIV/presentation/exitoDesasignar.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/exitoDesasignar.jsp");
             } else {
-                response.sendRedirect("/Proyecto01PrograIV/presentation/errorDesasignar.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/errorDesasignar.jsp");
             }
         } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
+            response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/error.jsp");
         }
     }
 }

@@ -26,44 +26,47 @@ import java.util.Random;
 
 public class CrearGrupoServlet extends HttpServlet {
 
-protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    String nombreGrupo = request.getParameter("nombreGrupo");
-    String estudianteID = request.getParameter("estudianteID");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nombreGrupo = request.getParameter("nombreGrupo");
+        String estudianteID = request.getParameter("estudianteID");
 
-    Service service = Service.obtenerInstancia();
+        Service service = Service.obtenerInstancia();
 
-    try {
-        List<Grupo> grupos = service.listarTodosGrupos();
-        boolean grupoExistente = false;
-        Grupo grupoEncontrado = null;
+        try {
+            List<Grupo> grupos = service.listarTodosGrupos();
+            boolean grupoExistente = false;
+            Grupo grupoEncontrado = null;
 
-        for (Grupo grupo : grupos) {
-            if (grupo.getNombre().equals(nombreGrupo)) {
-                grupoExistente = true;
-                grupoEncontrado = grupo;
-                break;
+            for (Grupo grupo : grupos) {
+                if (grupo.getNombre().equals(nombreGrupo)) {
+                    grupoExistente = true;
+                    grupoEncontrado = grupo;
+                    break;
+                }
             }
-        }
 
-        if (!grupoExistente) {
-            Grupo nuevoGrupo = new Grupo();
-            nuevoGrupo.setNombre(nombreGrupo);
-            nuevoGrupo.setActivo(true);
+            if (!grupoExistente) {
+                Grupo nuevoGrupo = new Grupo();
+                nuevoGrupo.setNombre(nombreGrupo);
+                nuevoGrupo.setActivo(true);
 
-            Random random = new Random();
-            int secuenciaAleatoria = random.nextInt(2000) + 1;
-            nuevoGrupo.setSecuencia(secuenciaAleatoria);
-            nuevoGrupo.setCupo(0);
+                Random random = new Random();
+                int secuenciaAleatoria = random.nextInt(2000) + 1;
+                nuevoGrupo.setSecuencia(secuenciaAleatoria);
+                nuevoGrupo.setCupo(0);
 
-            Estudiante estudiante = service.recuperar(estudianteID);
+                // Guarda el nuevo grupo en la base de datos
+                service.agregarGrupo(nuevoGrupo);
 
-            // Asigna el ID del grupo al estudiante después de agregar el grupo
-            estudiante.setGrupo_id(nuevoGrupo.getId());
+                Estudiante estudiante = service.recuperar(estudianteID);
 
-            service.actualizar(estudiante);
+                // Asigna el ID del grupo al estudiante después de agregar el grupo
+                estudiante.setGrupo_id(nuevoGrupo.getId());
 
-            response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
-        } else {
+                service.actualizar(estudiante);
+
+                response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/exito.jsp");
+        }else {
             if (grupoEncontrado.getCupo() < 5) {
                 Estudiante estudiante = service.recuperar(estudianteID);
                 estudiante.setGrupo_id(grupoEncontrado.getId());
@@ -73,14 +76,18 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
                 grupoEncontrado.setCupo(grupoEncontrado.getCupo() - 1);
                 service.actualizarGrupo(grupoEncontrado);
 
-                response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/exito.jsp");
             } else {
-                response.sendRedirect("/Proyecto01PrograIV/presentation/grupoLleno.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/grupoLleno.jsp");
             }
         }
-    } catch (SQLException e) {
+    }
+    catch (SQLException e
+
+    
+        ) {
         e.printStackTrace();
-        response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
+        response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/error.jsp");
     }
 }
 }

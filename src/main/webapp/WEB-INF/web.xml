@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+<filter>
+        <filter-name>FiltroAutenticacion</filter-name>
+        <filter-class>com.mycompany.proyecto01prograiv.presentation.FiltroAutenticacion</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroAutenticacion</filter-name>
+        <url-pattern>/presentation/paginasProtegidas/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Controller</servlet-name>
         <servlet-class>com.mycompany.proyecto01prograiv.presentation.login.Controller</servlet-class>

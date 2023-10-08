@@ -26,6 +26,7 @@
     </c:if>
 
     <form name="loginForm" action="${pageContext.request.contextPath}/Controller" method="post">
+        <input type="hidden" name="action" value="login">
         <label for="id">ID:</label>
         <input type="text" id="id" name="id" required><br><br>
 

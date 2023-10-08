@@ -42,13 +42,13 @@ public class UnirseGrupoServlet extends HttpServlet {
                 grupo.setCupo(grupo.getCupo() + 1);
                 service.actualizarGrupo(grupo);
 
-                response.sendRedirect("/Proyecto01PrograIV/presentation/exito.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/exito.jsp");
             } else {
-                response.sendRedirect("/Proyecto01PrograIV/presentation/grupoLleno.jsp");
+                response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/grupoLleno.jsp");
             }
         } catch (NumberFormatException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("/Proyecto01PrograIV/presentation/error.jsp");
+            response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/error.jsp");
         }
     }
 }
