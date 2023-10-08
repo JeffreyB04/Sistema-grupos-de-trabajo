@@ -53,7 +53,7 @@ public class CrearGrupoServlet extends HttpServlet {
                 Random random = new Random();
                 int secuenciaAleatoria = random.nextInt(2000) + 1;
                 nuevoGrupo.setSecuencia(secuenciaAleatoria);
-                nuevoGrupo.setCupo(0);
+                nuevoGrupo.setCupo(1);
 
                 // Guarda el nuevo grupo en la base de datos
                 service.agregarGrupo(nuevoGrupo);

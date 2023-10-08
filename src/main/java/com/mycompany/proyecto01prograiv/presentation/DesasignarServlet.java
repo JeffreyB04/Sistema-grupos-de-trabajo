@@ -39,7 +39,7 @@ public class DesasignarServlet extends HttpServlet {
                 grupo.setCupo(grupo.getCupo() - 1);
                 service.actualizarGrupo(grupo);
 
-                if (grupo.getCupo() == 0) {
+                if (grupo.getCupo() < 1) {
                     service.eliminarGrupo(grupoID);
                 }
 
