@@ -28,7 +28,41 @@ public class Controller extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        String action = request.getParameter("action");
 
+        if (action != null) {
+            switch (action) {
+                case "login":
+                    login(request, response);
+                    break;
+                    
+                case "cambiarClave":
+                    cambiarClave(request, response);
+                    break;
+                    
+                case "logout":
+                    logout(request, response);
+                    break;
+                    
+                default:
+                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                    response.getWriter().println("Acción desconocida");
+            }
+        } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().println("Se requiere un parámetro 'action'");
+        }
+        
+    }
+
+
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+    
+    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         String clave = request.getParameter("clave");
 
@@ -44,7 +78,7 @@ public class Controller extends HttpServlet {
                     if (estudiante != null && estudiante.getClave() != null && estudiante.getClave().equals(clave)) {
                         HttpSession session = request.getSession();
                         session.setAttribute("loggedInUser", estudiante);
-                        response.sendRedirect("/Proyecto01PrograIV/presentation/TablaEstudiante.jsp");
+                        response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/TablaEstudiante.jsp");
                         System.out.println(estudiante);
                     } else {
                         request.setAttribute("errorMessage", "Invalid id or clave");
@@ -61,10 +95,49 @@ public class Controller extends HttpServlet {
             e.printStackTrace();
         }
     }
+    
+    private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        response.sendRedirect(request.getContextPath() + "/Index.jsp");
+    }
+
+    
+    private void cambiarClave(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Estudiante loggedInUser = (Estudiante) session.getAttribute("loggedInUser");
+
+        if (loggedInUser != null) {
+            String id = loggedInUser.getId();
+            String contraseñaActual = request.getParameter("claveActual");
+            String nuevaContraseña = request.getParameter("clave");
+
+            Service service = Service.obtenerInstancia();
+            try {
+                if (service != null) {
+                    Dao<Estudiante, String> estudianteDAO = service.getEstudianteDAO();
+                    Estudiante estudiante = estudianteDAO.queryForId(id);
+                    
+                    if (estudiante != null && estudiante.getClave().equals(contraseñaActual)) {
+                        estudianteDAO.updateRaw("UPDATE estudiante SET clave = ? WHERE id = ?", nuevaContraseña, id);
+                        response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/TablaEstudiante.jsp");
+                        System.out.println(estudiante);
+                    } else {
+                        request.setAttribute("errorMessage", "Contraseña actual incorrecta");
+                    }
+                    
+                }else{
+                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "No se pudo inicializar el servicio.");
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }
