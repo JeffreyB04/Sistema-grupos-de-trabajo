@@ -64,5 +64,7 @@
         %>
 
         <a href="consultaGrupoTrabajo.jsp">Volver a la consulta</a>
+                <br>
+        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
     </body>
 </html>

@@ -35,8 +35,7 @@
             String resultado = "El estudiante no está incluido en ningún grupo.";
 
             if (estudianteID != null && !estudianteID.isEmpty()) {
-                // Aquí puedes realizar la lógica de filtración
-                // Usaremos la clase Service para recuperar el estudiante y verificar su grupo_id
+
 
                 Service service = Service.obtenerInstancia();
                 Estudiante estudiante = service.recuperar(estudianteID);
@@ -51,5 +50,7 @@
         <p><%= resultado %></p>
 
         <a href="consultaEstudiante.jsp">Volver a la consulta</a>
+                <br>
+        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
     </body>
 </html>

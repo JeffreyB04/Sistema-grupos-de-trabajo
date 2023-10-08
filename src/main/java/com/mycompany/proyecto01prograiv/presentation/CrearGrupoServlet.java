@@ -55,12 +55,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             nuevoGrupo.setSecuencia(secuenciaAleatoria);
             nuevoGrupo.setCupo(0);
 
-            int grupoID = service.agregarGrupo(nuevoGrupo);
-
             Estudiante estudiante = service.recuperar(estudianteID);
 
             // Asigna el ID del grupo al estudiante después de agregar el grupo
-            estudiante.setGrupo_id(grupoID);
+            estudiante.setGrupo_id(nuevoGrupo.getId());
 
             service.actualizar(estudiante);
 

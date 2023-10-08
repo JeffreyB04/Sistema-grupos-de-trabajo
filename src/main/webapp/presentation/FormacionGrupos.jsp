@@ -52,5 +52,7 @@
         </form>
 
         <p>Nota: Los grupos tienen un límite de no más de 5 estudiantes.</p>
+                <br>
+        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
     </body>
 </html>
