@@ -26,9 +26,9 @@ public class FiltroAutenticacion implements Filter {
         
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
-        httpResponse.setHeader("Pragma", "no-cache"); // HTTP 1.0.
-        httpResponse.setDateHeader("Expires", 0); // Proxies.
+        httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        httpResponse.setHeader("Pragma", "no-cache");
+        httpResponse.setDateHeader("Expires", 0); 
 
 
         HttpSession session = httpRequest.getSession(false);
