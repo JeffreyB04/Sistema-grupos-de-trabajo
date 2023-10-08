@@ -50,7 +50,7 @@ public class Estudiante implements Serializable {
     @Getter
     @Setter
     @DatabaseField
-    private int grupo_id;
+    private Integer grupo_id;
 
     public java.sql.Date getNacimiento() {
         return ultimo_acceso;
