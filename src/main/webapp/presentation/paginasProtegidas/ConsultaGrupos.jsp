@@ -24,11 +24,22 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       
+        <link href="../../css/consultaGrupos.css" rel="stylesheet" type="text/css"/>
         <title>Lista de Grupos</title>
     </head>
     <body>
+           <header>
+        <nav>
+            <ul>
+                <li><a href="FormacionGrupos.jsp">Formación de Grupos</a></li>
+                 <li>
+                   <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
         <h1>Lista de Grupos</h1>
+        <div class="container">
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -53,8 +64,6 @@
                 }
             %>
         </table>
-        <a href="FormacionGrupos.jsp">Ir a Formación de Grupos</a>
-        <br>
-        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
+        </div>
     </body>
 </html>

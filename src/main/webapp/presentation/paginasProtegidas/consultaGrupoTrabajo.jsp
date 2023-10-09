@@ -19,9 +19,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="../../css/consultaTrabajo.css" rel="stylesheet" type="text/css"/>
         <title>Consulta de Grupo de Trabajo</title>
     </head>
     <body>
+           <header>
+        <nav>
+            <ul>
+                <li><a href="consultaGrupoTrabajo.jsp">Volver a la consulta</a></li>
+                 <li>
+                   <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+        
         <h1>Consulta de Grupo de Trabajo</h1>
 
         <form action="" method="post">
@@ -63,8 +75,5 @@
             }
         %>
 
-        <a href="consultaGrupoTrabajo.jsp">Volver a la consulta</a>
-                <br>
-        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
     </body>
 </html>

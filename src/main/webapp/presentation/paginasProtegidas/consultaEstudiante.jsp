@@ -18,9 +18,20 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="../../css/consultaEstudiante.css" rel="stylesheet" type="text/css"/>
         <title>Consulta de Estudiante</title>
     </head>
     <body>
+         <header>
+        <nav>
+            <ul>
+                <li><a href="consultaEstudiante.jsp">Volver a la consulta</a></li>
+                 <li>
+                   <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
         <h1>Consulta de Estudiante</h1>
 
         <form action="" method="post">
@@ -49,8 +60,5 @@
         <h2>Resultado de la Consulta</h2>
         <p><%= resultado %></p>
 
-        <a href="consultaEstudiante.jsp">Volver a la consulta</a>
-                <br>
-        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
     </body>
 </html>

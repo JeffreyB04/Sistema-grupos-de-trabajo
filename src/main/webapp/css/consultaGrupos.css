@@ -1,0 +1,49 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Author     : Jennifer
+*/
+
+
+body{
+        font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h2 {
+    font-size: 14pt;
+}
+
+
+/*Header*/
+
+header {
+    background-color: #333; 
+    color: #fff;
+    padding: 20px;
+    text-align: center; 
+}
+
+nav ul {
+    list-style: none; 
+}
+
+nav ul li {
+    display: inline; 
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none; 
+    color: #fff; 
+    font-weight: bold; 
+}
+.container{
+display: grid;
+  place-items: center; 
+  color: navy;
+}
