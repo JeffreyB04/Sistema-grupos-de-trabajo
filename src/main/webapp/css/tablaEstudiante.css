@@ -11,37 +11,33 @@ h2 {
 }
 
 .box {
-    
+    display: flex;
+    justify-content: flex-end; /* Alinea el botón "Cambiar Clave" a la derecha */
+    padding: 12px;
 }
 
 .button {
-    padding: 12px;
-    margin-left: 64px;
     color: black;
     border: 2px solid black;
     text-decoration: none;
     cursor: pointer;
+    padding: 10px 20px; /* Ajusta el espaciado del botón */
+    background-color: lightgray;
+    border-radius: 6px;
 }
 
 .button:hover {
-    background: lightgray;
+    background: #ccc; /* Cambia el color de fondo al pasar el ratón */
 }
 
 .overlay {
-
-    /* Centra el elemento en la parte superior del contenedor. */
     position: fixed;
     left: 0;
     right: 0;
-
-    top: 0px;
+    top: 0;
     bottom: 0;
-
     background: rgba(0, 0, 0, 0.7);
     transition: opacity 500ms;
-    
-    /* El elemento es inicialmente invisible */
-    
     visibility: hidden;
     opacity: 0;
 }
@@ -56,9 +52,9 @@ h2 {
     padding: 24px;
     background: #fff;
     border-radius: 6px;
-    width: 30%;
+    max-width: 400px; /* Limita el ancho del popup */
     position: relative;
-    transition: all 5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .popup h2 {
@@ -70,8 +66,8 @@ h2 {
 .popup .close {
     position: absolute;
     top: 8px;
-    right: 24px;
-    font-size: 32px;
+    right: 8px; /* Coloca el botón de cierre en la esquina superior derecha */
+    font-size: 24px;
     font-weight: bold;
     text-decoration: none;
     color: #333;
@@ -83,7 +79,7 @@ h2 {
 }
 
 .popup .content {
-    max-height: 30%;
+    max-height: 60%; /* Aumenta el espacio para el contenido */
     overflow: auto;
 }
 
@@ -108,7 +104,6 @@ display: grid;
 
 /*Header*/
 
-/* Estilo del encabezado */
 header {
     background-color: #333; 
     color: #fff;

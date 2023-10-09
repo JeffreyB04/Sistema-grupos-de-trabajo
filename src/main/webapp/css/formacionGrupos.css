@@ -17,3 +17,59 @@ body{
 h2 {
     font-size: 14pt;
 }
+
+/*Header*/
+header {
+    background-color: #333; 
+    color: #fff;
+    padding: 20px;
+    text-align: center; 
+}
+
+nav ul {
+    list-style: none; 
+}
+
+nav ul li {
+    display: inline; 
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none; 
+    color: #fff; 
+    font-weight: bold; 
+}
+
+/*Formularios*/
+
+.opciones {
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .formulario {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .formulario h2 {
+            font-size: 18px;
+            margin-top: 0;
+        }

@@ -19,40 +19,68 @@
         <title>Formación de Grupos</title>
     </head>
     <body>
+           <header>
+        <nav>
+            <ul>
+                <li><a href="TablaEstudiante.jsp">Tabla de estudiantes</a></li>
+            </ul>
+        </nav>
+    </header>
         <h1>Formación de Grupos</h1>
+    
+    <div class="opciones">
+        <button id="mostrar-form1">Crear un grupo</button>
+        <button id="mostrar-form2">Unirse a un grupo</button>
+        <button id="mostrar-form3">Desasignar estudiante</button>
+    </div>
 
-        <h2>Crear un Nuevo Grupo</h2>
-        <form action="${pageContext.request.contextPath}/CrearGrupoServlet" method="POST">
-            <label for="nombreGrupo">Nombre del Grupo:</label>
+    <form action="${pageContext.request.contextPath}/CrearGrupoServlet" method="POST" id="formulario1" class="formulario" style="display: none;">
+        <h2>Crear un nuevo grupo</h2>
+         <label for="nombreGrupo">Nombre del Grupo:</label>
             <input type="text" id="nombreGrupo" name="nombreGrupo" required><br><br>
 
             <label for="estudianteID">Tu ID de Estudiante:</label>
             <input type="text" id="estudianteID" name="estudianteID" required><br><br>
 
             <input type="submit" value="Crear Grupo">
-        </form>
+    </form>
 
-        <h2>Unirse a un Grupo Existente</h2>
-        <form action="${pageContext.request.contextPath}/UnirseGrupoServlet" method="POST">
-            <label for="codigoGrupo">Código del Grupo:</label>
+    <form action="${pageContext.request.contextPath}/UnirseGrupoServlet" method="POST" id="formulario2" class="formulario" style="display: none;">
+        <h2>Unirse a un grupo existente</h2>
+          <label for="codigoGrupo">Código del Grupo:</label>
             <input type="text" id="codigoGrupo" name="codigoGrupo" required><br><br>
 
             <label for="estudianteIDUnirse">Tu ID de Estudiante:</label>
             <input type="text" id="estudianteIDUnirse" name="estudianteIDUnirse" required><br><br>
 
             <input type="submit" value="Unirse al Grupo">
-        </form>
+    </form>
 
-        <h2>Desasignar Estudiante de un Grupo</h2>
-        <form action="${pageContext.request.contextPath}/DesasignarServlet" method="POST">
-            <label for="estudianteIDDesasignar">Tu ID de Estudiante:</label>
+    <form action="${pageContext.request.contextPath}/DesasignarServlet" method="POST" id="formulario3" class="formulario" style="display: none;">
+        <h2> Desasignar Estudiante de un Grupo </h2>
+        <label for="estudianteIDDesasignar">Tu ID de Estudiante:</label>
             <input type="text" id="estudianteIDDesasignar" name="estudianteIDDesasignar" required><br><br>
 
             <input type="submit" value="Desasignar Estudiante">
-        </form>
+    </form>
 
-        <p>Nota: Los grupos tienen un límite de no más de 5 estudiantes.</p>
-                <br>
-        <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const formularios = document.querySelectorAll(".formulario");
+            const botonesMostrar = document.querySelectorAll("button[id^='mostrar-form']");
+
+            botonesMostrar.forEach((boton, index) => {
+                boton.addEventListener("click", function () {
+                    formularios.forEach((formulario) => {
+                        formulario.style.display = "none";
+                    });
+                    formularios[index].style.display = "block";
+                });
+            });
+        });
+    </script>
+     
+        <strong>Nota: Los grupos tienen un límite de no más de 5 estudiantes.</strong>
+            
     </body>
 </html>
