@@ -15,6 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../../css/formacionGrupos.css" rel="stylesheet" type="text/css"/>
         <title>Formación de Grupos</title>
     </head>
     <body>

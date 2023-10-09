@@ -25,8 +25,25 @@
         <meta charset="UTF-8">
         <title>Lista de Estudiantes</title>
                 <link href="../../css/tablaEstudiante.css" rel="stylesheet" type="text/css"/>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
     </head>
     <body>
+         <header>
+        <nav>
+            <ul>
+                <li><a href="FormacionGrupos.jsp">Formación de Grupos</a></li>
+                <li>
+                     <a href="ConsultaGrupos.jsp">Consultar Grupos</a>
+                </li>
+                <li>
+                   <a href="consultaEstudiante.jsp">Consultar estudiante</a>
+                </li>
+                <li>
+                     <a href="consultaGrupoTrabajo.jsp">Consultar por grupo de trabajo</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
         <div class="box">
             <a class="button" href="#popup1">Cambiar clave</a>
         </div>
@@ -61,6 +78,7 @@
             </div>
         </div>
         <h1>Lista de Estudiantes</h1>
+        <div class="container">
         <table border="1">
             <tr>
                 <th>ID</th>
@@ -85,12 +103,7 @@
                 }
             %>
         </table>
-        <a href="FormacionGrupos.jsp">Ir a Formación de Grupos</a>
-        <br>
-        <a href="ConsultaGrupos.jsp">Consultar Grupos</a>
-        <br>
-        <a href="consultaEstudiante.jsp">Consultar estudiante</a>
-        <br>
-        <a href="consultaGrupoTrabajo.jsp">Consultar por grupo de trabajo</a>
+        </div>
+      
     </body>
 </html>
