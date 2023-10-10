@@ -4,7 +4,7 @@
  * (c) 2023
  *
  * @author: Jeffry Barquero Torres
- * @author:
+ * @author: Eduardo Orellana Rivas
  * @author:
  * @version 1.0.0 2023-10-07
  *
@@ -53,7 +53,7 @@ public class CrearGrupoServlet extends HttpServlet {
                 Random random = new Random();
                 int secuenciaAleatoria = random.nextInt(2000) + 1;
                 nuevoGrupo.setSecuencia(secuenciaAleatoria);
-                nuevoGrupo.setCupo(0);
+                nuevoGrupo.setCupo(1);
 
                 // Guarda el nuevo grupo en la base de datos
                 service.agregarGrupo(nuevoGrupo);

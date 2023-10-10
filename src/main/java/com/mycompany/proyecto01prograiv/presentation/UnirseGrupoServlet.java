@@ -4,7 +4,7 @@
  * (c) 2023
  *
  * @author: Jeffry Barquero Torres
- * @author:
+ * @author: Eduardo Orellana Rivas
  * @author:
  * @version 1.0.0 2023-10-07
  *

@@ -1,6 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+/**
+ * -------------------------------------------------------------------
+ *
+ * (c) 2023
+ *
+ * @author: Jeffry Barquero Torres
+ * @author: Eduardo Orellana Rivas
+ * @author:
+ * @version 1.0.0 2023-10-07
+ *
+ * --------------------------------------------------------------------
  */
 package com.mycompany.proyecto01prograiv.presentation;
 
@@ -14,10 +22,6 @@ import java.io.IOException;
 import com.mycompany.proyecto01prograiv.logic.Service;
 import java.sql.SQLException;
 
-/**
- *
- * @author jeffry
- */
 public class DesasignarServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,8 +42,9 @@ public class DesasignarServlet extends HttpServlet {
                 Grupo grupo = service.recuperarGrupo(grupoID);
                 grupo.setCupo(grupo.getCupo() - 1);
                 service.actualizarGrupo(grupo);
+                
 
-                if (grupo.getCupo() == 0) {
+                if (grupo.getCupo() < 1) {
                     service.eliminarGrupo(grupoID);
                 }
 

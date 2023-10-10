@@ -4,7 +4,7 @@
  * (c) 2023
  *
  * Jeffry Barquero Torres
- * 
+ * Eduardo Orellana Rivas
  *
  * version 1.0.0 2023-09-30
  *
