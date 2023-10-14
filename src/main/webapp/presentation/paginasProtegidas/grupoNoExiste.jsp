@@ -14,12 +14,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="../../css/mensaje.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <title>Grupo No Existe</title>
     </head>
     <body>
-        <h1>Grupo No Existe</h1>
+        <div class="message-box">
+            <h1 class="error">Grupo No Existe</h1>
         <p>El grupo que intentas unirte no existe.</p>
         <a href="/Proyecto01PrograIV/Index.jsp">Volver a la página principal</a>
-    </body>
+    </div></body>
 </html>

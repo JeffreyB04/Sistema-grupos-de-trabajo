@@ -43,17 +43,17 @@
                 </li>
             </ul>
         </nav>
-    </header>
-        <div class="box">
-            <a class="button" href="#popup1">Cambiar clave</a>
-        </div>
-        <div>
+             <div class="box">
             <form action="${pageContext.request.contextPath}/Controller" method="post">
                 <input type="hidden" name="action" value="logout">
-                <input type="submit" value="Cerrar sesión">
+                <input class="button" type="submit" value="Cerrar sesión">
             </form>
-
+            <a class="button" href="#popup1">Cambiar clave</a>
         </div>
+            
+    </header>
+      
+    
 
         <div id="popup1" class="overlay">
             <div class="popup">

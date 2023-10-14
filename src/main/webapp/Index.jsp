@@ -17,13 +17,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sistema Grupos</title>
 
-        <!-- Link to the CSS file -->
         <link rel="stylesheet" type="text/css" href="css/index.css">
     </head>
     <body>
         <h1>Sistema de Grupos</h1>
+        <h4>
+            Estudiantes: 
+            Jeffry Barquero Torres,
+            Jennifer Mejías Salazar,
+            Eduardo Orellana Rivas
+        </h4>
 
-        <!-- Create a link to presentation/login/View.jsp -->
-        <a href="presentation/login/View.jsp">Go to Login Page</a>
+
+        <a href="presentation/login/View.jsp">Ir al Login</a>
     </body>
 </html>

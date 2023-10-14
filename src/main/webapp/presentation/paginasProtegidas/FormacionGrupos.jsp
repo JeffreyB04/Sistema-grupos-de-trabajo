@@ -42,7 +42,7 @@
             <label for="estudianteID">Tu ID de Estudiante:</label>
             <input type="text" id="estudianteID" name="estudianteID" required><br><br>
 
-            <input type="submit" value="Crear Grupo">
+            <input class="opciones" type="submit" value="Crear Grupo">
     </form>
 
     <form action="${pageContext.request.contextPath}/UnirseGrupoServlet" method="POST" id="formulario2" class="formulario" style="display: none;">

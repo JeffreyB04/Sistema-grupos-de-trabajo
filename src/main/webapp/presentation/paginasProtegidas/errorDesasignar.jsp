@@ -14,12 +14,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="../../css/mensaje.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <title>Error al Desasignar Estudiante</title>
     </head>
     <body>
-        <h1>Error al Desasignar Estudiante</h1>
+        <div class="message-box">
+        <h1 class="error" >Error al Desasignar Estudiante</h1>
         <p>Ha ocurrido un error al intentar desasignar al estudiante del grupo.</p>
         <a href="/Proyecto01PrograIV/Index.jsp">Volver a la página principal</a>
+   </div>
     </body>
 </html>

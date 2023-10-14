@@ -14,12 +14,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="../../css/mensaje.css" rel="stylesheet" type="text/css"/>
         <meta charset="UTF-8">
         <title>Éxito al Desasignar Estudiante</title>
     </head>
     <body>
-        <h1>Éxito al Desasignar Estudiante</h1>
+        <div class="message-box">
+        <h1 class="success">Éxito al Desasignar Estudiante</h1>
         <p>El estudiante ha sido desasignado del grupo exitosamente.</p>
         <a href="/Proyecto01PrograIV/Index.jsp">Volver a la página principal</a>
-    </body>
+    </div></body>
 </html>
