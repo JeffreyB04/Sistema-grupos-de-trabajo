@@ -1,6 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+/**
+ * -------------------------------------------------------------------
+ *
+ * (c) 2023
+ *
+ * @author: Jeffry Barquero Torres
+ * @author: Jennifer Mejías Salazar 
+ * @author: Eduardo Orellana Rivas
+ * @version 1.0.0 2023-10-07
+ *
+ * --------------------------------------------------------------------
  */
 package com.mycompany.proyecto01prograiv.presentation;
 

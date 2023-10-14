@@ -4,8 +4,8 @@
  * (c) 2023
  *
  * Jeffry Barquero Torres
- * 
- *
+ * Jennifer Mejías Salazar
+ * Eduardo Orellana Rivas
  * version 1.0.0 2023-09-30
  *
  ===================================================================
@@ -22,16 +22,14 @@
         <title>Consulta de Estudiante</title>
     </head>
     <body>
-         <header>
-        <nav>
-            <ul>
-                <li><a href="consultaEstudiante.jsp">Volver a la consulta</a></li>
-                 <li>
-                   <a href="TablaEstudiante.jsp">Tabla de estudiantes</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="consultaEstudiante.jsp">Volver a la consulta</a></li>
+                    <li><a href="TablaEstudiante.jsp">Tabla de estudiantes</a></li>
+                </ul>
+            </nav>
+        </header>
         <h1>Consulta de Estudiante</h1>
 
         <form action="" method="post">
@@ -46,13 +44,17 @@
             String resultado = "El estudiante no está incluido en ningún grupo.";
 
             if (estudianteID != null && !estudianteID.isEmpty()) {
-
-
                 Service service = Service.obtenerInstancia();
                 Estudiante estudiante = service.recuperar(estudianteID);
 
-                if (estudiante != null && estudiante.getGrupo_id() != 0) {
-                    resultado = "El estudiante está incluido en un grupo con ID: " + estudiante.getGrupo_id();
+                if (estudiante != null) {
+                    if (estudiante.getGrupo_id() != null && estudiante.getGrupo_id() != 0) {
+                        resultado = "El estudiante está incluido en un grupo con ID: " + estudiante.getGrupo_id();
+                    } else {
+                        resultado = "El estudiante no está incluido en ningún grupo.";
+                    }
+                } else {
+                    resultado = "No se encontraron coincidencias para el ID del estudiante.";
                 }
             }
         %>

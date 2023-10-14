@@ -4,8 +4,8 @@
  * (c) 2023
  *
  * @author: Jeffry Barquero Torres
- * @author:
- * @author:
+ * @author: Jennifer Mejías Salazar 
+ * @author: Eduardo Orellana Rivas
  * @version 1.0.0 2023-10-07
  *
  * --------------------------------------------------------------------
@@ -167,13 +167,23 @@ public class Service implements Serializable {
         return r.toString();
     }
 
-    public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String grupo_id) throws SQLException {
+/*    public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String grupo_id) throws SQLException {
         List<Estudiante> estudiantes = null;
         if (estudianteDAO != null) {
             estudiantes = estudianteDAO.queryForEq("grupo_id", grupo_id);
         }
         return estudiantes;
+    }*/
+public List<Estudiante> obtenerEstudiantesPorGrupoTrabajo(String grupo_id) throws SQLException {
+    List<Estudiante> estudiantes = new ArrayList<>(); // Inicializa con una lista vacía
+
+    if (estudianteDAO != null) {
+        estudiantes = estudianteDAO.queryForEq("grupo_id", grupo_id);
     }
+
+    return estudiantes;
+}
+
 
     @XmlElementWrapper(name = "estudiantes")
     @XmlElement(name = "estudiante")

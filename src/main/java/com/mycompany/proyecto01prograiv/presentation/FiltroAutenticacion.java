@@ -1,3 +1,15 @@
+/**
+ * -------------------------------------------------------------------
+ *
+ * (c) 2023
+ *
+ * @author: Jeffry Barquero Torres
+ * @author: Jennifer Mejías Salazar 
+ * @author: Eduardo Orellana Rivas
+ * @version 1.0.0 2023-10-07
+ *
+ * --------------------------------------------------------------------
+ */
 package com.mycompany.proyecto01prograiv.presentation;
 
 import jakarta.servlet.Filter;

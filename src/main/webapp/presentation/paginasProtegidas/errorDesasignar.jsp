@@ -4,8 +4,8 @@
  * (c) 2023
  *
  * Jeffry Barquero Torres
- * 
- *
+ * Jennifer Mejías Salazar
+ *Eduardo Orellana Rivas
  * version 1.0.0 2023-09-30
  *
  ===================================================================

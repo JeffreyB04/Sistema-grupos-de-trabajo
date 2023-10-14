@@ -4,8 +4,8 @@
  * (c) 2023
  *
  * @author: Jeffry Barquero Torres
- * @author:
- * @author:
+ * @author: Jennifer Mejías Salazar 
+ * @author: Eduardo Orellana Rivas
  * @version 1.0.0 2023-10-07
  *
  * --------------------------------------------------------------------
