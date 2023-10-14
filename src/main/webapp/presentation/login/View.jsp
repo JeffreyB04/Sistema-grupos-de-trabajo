@@ -20,7 +20,9 @@
     </head>
     <body>
         <h1>Login Page</h1>
-
+    <c:if test="${not empty errorMessage}">
+        <p class="error-message">${errorMessage}</p>
+    </c:if>
     <div>
         <% String errorMessage = (String) request.getAttribute("errorMessage"); %>
         <% if (errorMessage != null) { %>
