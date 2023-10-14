@@ -4,8 +4,8 @@
  * (c) 2023
  *
  * @author: Jeffry Barquero Torres
- * @author: Jennifer Mejías Salazar 
- * @author: Eduardo Orellana Rivas
+ * @author:
+ * @author:
  * @version 1.0.0 2023-10-07
  *
  * --------------------------------------------------------------------
@@ -74,7 +74,7 @@ public class Controller extends HttpServlet {
         return "Short description";
     }
     
-     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         String clave = request.getParameter("clave");
 
@@ -93,8 +93,7 @@ public class Controller extends HttpServlet {
                         response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/TablaEstudiante.jsp");
                         System.out.println(estudiante);
                     } else {
-                        System.out.println("Invalid id or clave");
-                        request.setAttribute("errorMessage", "Invalido id o clave");
+                       request.setAttribute("errorMessage", "Invalido id o clave");
                         RequestDispatcher dispatcher = request.getRequestDispatcher("/presentation/login/View.jsp");
                         dispatcher.forward(request, response);
                     }
