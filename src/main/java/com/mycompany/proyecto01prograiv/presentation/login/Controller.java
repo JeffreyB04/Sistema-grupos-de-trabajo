@@ -74,7 +74,7 @@ public class Controller extends HttpServlet {
         return "Short description";
     }
     
-    private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         String clave = request.getParameter("clave");
 
@@ -93,8 +93,9 @@ public class Controller extends HttpServlet {
                         response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/TablaEstudiante.jsp");
                         System.out.println(estudiante);
                     } else {
-                        request.setAttribute("errorMessage", "Invalid id or clave");
-                        RequestDispatcher dispatcher = request.getRequestDispatcher("Index.jsp");
+                        System.out.println("Invalid id or clave");
+                        request.setAttribute("errorMessage", "Invalido id o clave");
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("/presentation/login/View.jsp");
                         dispatcher.forward(request, response);
                     }
                 } else {
