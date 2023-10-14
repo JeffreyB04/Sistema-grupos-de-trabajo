@@ -135,7 +135,8 @@ public class Controller extends HttpServlet {
                     
                     if (estudiante != null && estudiante.getClave().equals(contraseñaActual)) {
                         estudianteDAO.updateRaw("UPDATE estudiante SET clave = ? WHERE id = ?", nuevaContraseña, id);
-                        response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/TablaEstudiante.jsp");
+                       // response.sendRedirect("/Proyecto01PrograIV/presentation/paginasProtegidas/TablaEstudiante.jsp");
+                        logout(request, response);
                         System.out.println(estudiante);
                     } else {
                         request.setAttribute("errorMessage", "Contraseña actual incorrecta");
@@ -151,5 +152,4 @@ public class Controller extends HttpServlet {
         }
 
     }
-
 }
